@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 15:54:57 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/18 16:16:57 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/19 17:07:33 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	stack_print(t_list *stack)
 	{
 		printf("%d", curr->content);
 		if (curr->next)
-			printf(" -> ");
+			printf(" >>> ");
 		else
-			printf(" -> NULL\n");
+			printf(" >>> NULL\n");
 		curr = curr->next;
 	}
 	if (!stack)

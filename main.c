@@ -6,11 +6,11 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 16:04:08 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/18 16:59:07 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/19 16:42:47 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+/*#include "stack.h"
 
 int main(void)
 {
@@ -44,4 +44,4 @@ int main(void)
     stack_clear(&stack);
     printf("interestingly pop is freed on its own when its added back as the head\n");
     return (0);
-}
+}*/
