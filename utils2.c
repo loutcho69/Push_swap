@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:28:47 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/19 15:46:18 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/23 13:30:16 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
-#include <stdio.h>
 
 static int	safe_malloc(char **split_string, int position, size_t buffer)
 {
@@ -54,8 +53,6 @@ static int	count_words(const char *str, char c)
 	}
 	return (word_count);
 }
-
-
 
 static int	fill(char **split_string, char const *s, char c)
 {

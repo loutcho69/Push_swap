@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_clear.c                                      :+:      :+:    :+:   */
+/*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 15:41:30 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/18 15:50:22 by btheveny         ###   ########.fr       */
+/*   Created: 2026/02/23 13:30:53 by btheveny          #+#    #+#             */
+/*   Updated: 2026/02/23 13:31:25 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-void	stack_clear(t_list **stack)
+void	ft_lstadd_front(t_list **stack, t_list *node)
 {
-    t_list *temp;
-    t_list *curr;
-
-    if (!stack)
+    if (!stack || !node)
         return ;
-    curr = *stack;
-    while (curr)
-    {
-        temp = curr->next;
-        free(curr);
-        curr = temp;
-    }
-    *stack = NULL;
+    node->next = *stack;
+    *stack = node;
 }
