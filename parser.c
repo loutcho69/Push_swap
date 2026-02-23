@@ -6,17 +6,12 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/23 13:25:59 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/23 13:37:42 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include <stdio.h> //replace printf with our ft_printf do not forget
-
-static int	ft_isdigit(char c)
-{
-	return (c >= '0' && c <= '9');
-}
 
 //idk if we need to check if there are zeros before our ints
 static int	is_token_int(const char *s)
@@ -65,7 +60,10 @@ int	is_token_in_int_range(const char *s)
 			sign = -1;
 		s++;
 	}
-	if (s[0] == '0' && s[1] != '\0') //here theres a pb, I wanted 00 to cause an error but it does not it writes 0 ok nvm i corrected it I had 0 and not '0' since i havent atoi'ed yet return (0); if (*s == '\0') return (0); len = 0;
+	if (s[0] == '0' && s[1] != '\0') //here theres a pb, I wanted 00 to cause an error but it does not it writes 0 ok nvm i corrected it I had 0 and not '0' since i havent atoi'ed yet return (0); 
+	if (*s == '\0') 
+		return (0); 
+	len = 0;
 	while (s[len] && ft_isdigit(s[len]))
 		len++;
 	if (len > 10)
