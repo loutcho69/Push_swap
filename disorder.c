@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:24:38 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/24 17:25:52 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/24 17:53:49 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,29 @@ size_t  stack_len(t_list *lst) // safely handle empty list
     return (i);
 }
 
+void    count_mistakes_and_pairs(size_t i, int *mistakes, int *total_pairs, size_t len, t_list *a)
+{
+    size_t j;
+    
+    while (i < len - 1)
+    {
+    j = i + 1;
+        while (j < len)
+        {
+            (*total_pairs)++;
+            if (get_nth_content(a, i) > get_nth_content(a, j))
+                (*mistakes)++;
+            j++;
+        }
+    i++;
+    }
+}
+
 float   disorder(t_list *a)
 {
     int     mistakes;
     int     total_pairs;
     size_t  i;
-    size_t  j;
     size_t  len;
     float   result;
 
@@ -55,18 +72,9 @@ float   disorder(t_list *a)
     len = stack_len(a);
     if (len < 2)
         return (0.0f);
-    while (i < len - 1)
-    {
-        j = i + 1;
-        while (j < len)
-        {
-            total_pairs += 1;
-            if (get_nth_content(a, i) > get_nth_content(a, j))
-                mistakes += 1;
-            j++;
-        }
-        i++;
-    }
+    printf("total_pairs = %d and mistakes = %d\n", total_pairs, mistakes);
+    count_mistakes_and_pairs(i, &mistakes, &total_pairs, len, a);
+    printf("total_pairs = %d and mistakes = %d\n", total_pairs, mistakes);
     result = (float)mistakes / (float)total_pairs;
     return (result);
 }
