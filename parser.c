@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/23 13:44:14 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/24 17:32:31 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ static int	is_token_int(const char *s)
 	return (1);
 }
 
-
-
-
-
 int	is_token_in_int_range(const char *s)
 {
 	int			sign;
@@ -44,7 +40,7 @@ int	is_token_in_int_range(const char *s)
 	const char	*limit;
 
 	sign = 1;
-	sign_checker(s, sign);	
+	sign_checker(s);	
 	if (s[0] == '0' && s[1] != '\0') 
 	if (*s == '\0') 
 		return (0); 
@@ -64,42 +60,28 @@ int	is_token_in_int_range(const char *s)
 	return (1);
 }
 
-/*static int	has_duplicate(t_list *a, int value)
+static int	has_duplicate(t_list *a, int value, int j)
 {
-
-    if (a == NULL)
-        return (1);
-    while (a)
+    if (j != 0 && a == NULL)
+	{
+		return (0);
+	}
+    while (j != 0 && a)
 	{
 		if (a->content == value)
 			return (0);
 		a = a->next;
 	}
 	return (1);
-}*/
-void	free_tokens(char **tokens)
-{
-	int	i;
+}
 
-	if (!tokens)
-		return ;
-	i = 0;
-	while (tokens[i])
-	{
-		free(tokens[i]);
-		i++;
-	}
-	free(tokens);
-}
-static int	parse_error(t_list **a, char **tokens)
-{
-	if (tokens)
-		free_tokens(tokens);
-	if (a)
-		stack_clear(a);
-	write(2, "Error\n", 6);
-	return (1);
-}
+/* logiaue du code pour chaque tokens[j] :
+           - valider format -> is_int_token(char)
+           - according to the subject we only have to take int not long so just check that its between INT_MIN et INT_MAX and then atoi
+            -> is token in int range
+           - atoi avec pas de risque d'overflow
+           - doublon ? si non creer node et ajouter a stack
+*/
 
 int parse_input(int argc, char **argv, t_list **a)
 {
@@ -118,7 +100,6 @@ int parse_input(int argc, char **argv, t_list **a)
 	while (i < argc)
 	{
 		tokens = ft_split(argv[i], ' ');
-        printf("Split ok\n");
 		if (!tokens || !tokens[0])
 			return (parse_error(a, tokens));
 		j = 0;
@@ -126,37 +107,26 @@ int parse_input(int argc, char **argv, t_list **a)
 		{
 			if (!is_token_int(tokens[j]))
 				return (parse_error(a, tokens));
-                printf("is token int ok %d\n", j);
 			if (!is_token_in_int_range(tokens[j]))
 				return (parse_error(a, tokens));
-                printf("is token int range ok %d\n", j);
 			value = ft_atoi(tokens[j]);
-            printf("atoi ok %d\n", j);
-		//	if (has_duplicate(*a, value))
-		//		return (parse_error(a, tokens));
-        //      printf("has duplicate ok %d\n", j);
+			if (!has_duplicate(*a, value, j))
+				return (parse_error(a, tokens));
 			node = node_new(value);
 			if (!node)
 				return (parse_error(a, tokens));
 			ft_lstadd_back(a, node);
-            printf("added node to the back ok %d\n", j);
             j++;
 		}
-        stack_print(*a);
+	stack_print(*a);
+	printf("the stack len is %zu\n", stack_len(*a));
+	printf("the disorder is %f\n", disorder(*a));
 		free_tokens(tokens);
 		i++;
 	}
 	return (0);   
             
-        }
-
-/* logiaue du code pour chaque tokens[j] :
-           - valider format -> is_int_token(char)
-           - according to the subject we only have to take int not long so just check that its between INT_MIN et INT_MAX and then atoi
-            -> is token in int range
-           - atoi avec pas de risque d'overflow
-           - doublon ? si non creer node et ajouter a stack
-*/
+}
 
 /*exemple de main*/
 

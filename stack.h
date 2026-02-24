@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/23 13:44:51 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/24 17:33:05 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ size_t	ft_strlen(const char	*str);
 int		ft_atoi(const char *str);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 int		ft_isdigit(char c);
-void	sign_checker(const char *s, int sign);
+void	sign_checker(const char *s);
 int		ft_strcmp_10(const char *a, const char *b);
+void	free_tokens(char **tokens);
+int		parse_error(t_list **a, char **tokens);
+size_t  stack_len(t_list *a);
+float   disorder(t_list *a);
 
 /* only to debug */
 void	stack_print(t_list *stack);
