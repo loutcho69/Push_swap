@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   stack_clear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/18 16:45:41 by btheveny         ###   ########.fr       */
+/*   Created: 2026/02/18 15:41:30 by btheveny          #+#    #+#             */
+/*   Updated: 2026/02/18 15:50:22 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#include "stack.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-
-typedef struct s_list
+void	stack_clear(t_list **stack)
 {
-	int				content;
-	struct s_list	*next;
-}	t_list;
+    t_list *temp;
+    t_list *curr;
 
-t_list	*node_new(int value);
-void	stack_push_front(t_list **stack, t_list *node);
-void	stack_clear(t_list **stack);
-t_list *stack_pop_front(t_list **stack);
-/* debug only */
-void	stack_print(t_list *stack);
-
-#endif
+    if (!stack)
+        return ;
+    curr = *stack;
+    while (curr)
+    {
+        temp = curr->next;
+        free(curr);
+        curr = temp;
+    }
+    *stack = NULL;
+}
