@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/28 15:52:33 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/28 16:46:48 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,11 @@ static int	has_duplicate(t_list *a, int value, int j)
 }
 
 /* logiaue du code pour chaque tokens[j] :
-		- valider format -> is_int_token(char)
-		- according to the subject we only have to take int not long so just check that its between INT_MIN et INT_MAX and then atoi
-			-> is token in int range
-		- atoi avec pas de risque d'overflow
-		- doublon ? si non creer node et ajouter a stack
+           - valider format -> is_int_token(char)
+           - according to the subject we only have to take int not long so just check that its between INT_MIN et INT_MAX and then atoi
+            -> is token in int range
+           - atoi avec pas de risque d'overflow
+           - doublon ? si non creer node et ajouter a stack
 */
 
 int	parse_input(int argc, char **argv, t_list **a, t_opts *opts)
@@ -126,29 +126,16 @@ int	parse_input(int argc, char **argv, t_list **a, t_opts *opts)
 			ft_lstadd_back(a, node);
 			j++;
 		}
-		stack_print(*a);
-		printf("the disorder is %f\n", disorder(*a));
-		printf("strategy = %s and bench = %d\n",
-			strat_name(opts->strat), opts->bench);
+		// stack_print(*a);
+		// printf("the disorder is %f\n", disorder(*a));
+		// printf("strategy = %s and bench = %d\n",
+		//	strat_name(opts->strat), opts->bench);
 		free_tokens(tokens);
 		i++;
 	}
 	return (0);
 
 }
-
-
-/*int	parser(int argc, char **argv, t_list **a)
-{
-	parse_input(argc, argv, a);
-
-
-
-}*/
-
-
-
-/*exemple de main*/
 
 int	main(int argc, char **argv)
 {
@@ -164,10 +151,22 @@ int	main(int argc, char **argv)
 		return (0);
 
 	d = disorder(a); /* avant les moves */
+	//printf("disorder = %.3f\n", d);
+	//printf("This is stack a : ");
+	//stack_print(a);
+	//printf("This is stack b : ");
+	//stack_print(b);
 
 	/* choisir + exécuter la stratégie ici (simple/medium/complex/adaptive) */
+	/* un prototype des fonctions de tri par exemple serait genre
+	void sort_simple(t_list **a, t_list **b, const t_opts *opts)
+	ou alors on rentre meme pas les opts dans la fonction juste
+	on les met dans un dispatcher qui regarde l'option selectionnee et
+	selon l option decide quel algo lancer*/
 	/* compter les opérations dans une structure ops */
-
 	/* si opts.bench : print sur stderr après tri */
+
+	stack_clear(&a);
+	stack_clear(&b);
 	return (0);
 }

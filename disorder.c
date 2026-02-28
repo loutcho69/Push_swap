@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:24:38 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/24 18:17:20 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/28 16:30:21 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,7 @@ float	disorder(t_list *a)
 	len = stack_len(a);
 	if (len < 2)
 		return (0.0f);
-	printf("total_pairs = %d and mistakes = %d\n", total_pairs, mistakes);
 	count_mistakes_and_pairs(i, &mistakes, &total_pairs, len, a);
-	printf("total_pairs = %d and mistakes = %d\n", total_pairs, mistakes);
 	result = (float)mistakes / (float)total_pairs;
 	return (result);
 }
