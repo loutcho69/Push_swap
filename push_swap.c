@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/02/28 03:12:51 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/02/28 20:09:15 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,6 @@ static void simple_sort(t_list *stack_a)
 // }
 #include <stdio.h>
 
-// int main()
-// {
-//     t_list *stack_a;
-    
-//     stack_a  = ft_lstnew(0);
-//     ft_lstadd_front(&stack_a,ft_lstnew(2));
-//     ft_lstadd_front(&stack_a,ft_lstnew(1));
-//     simple_sort(stack_a);
-    
-//     printf("%d/n%d/n%d/n", stack_a->value, stack_a->next->value, stack_a->next->next->value);
-    
-    
-// }
 int main()
 {
     t_list *stack_a;

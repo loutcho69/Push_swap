@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 22:50:43 by lobroue           #+#    #+#             */
-/*   Updated: 2026/02/28 03:09:26 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/02/28 20:10:30 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	count_node(t_list *stack)
 	size_t	count;
     t_list *tmp;
 
-	count = 0;
+	count = 1;
 	while (tmp->value != tmp->next->value)
 	{
 		++count;
@@ -30,7 +30,6 @@ int	count_node(t_list *stack)
 }
 void	ft_lstadd_front(t_list **stack, t_list *new_node)
 {
-	printf("addfront appelée, stack: %p, new_node: %p\n", *stack, new_node);
 	if (!stack || !new_node)
 		return ;
 	if (!*stack)
