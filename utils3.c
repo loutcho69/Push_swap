@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:30:53 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/24 17:32:49 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/28 14:47:05 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,23 @@ int	ft_strcmp_10(const char *a, const char *b)
 	return (0);
 }
 
-void sign_checker(const char *s)
+int	sign_checker(const char *s, const char **p)
 {
-	if (*s == '+' || *s == '-')
+	int	sign;
+
+	sign = 1;
+	*p = s;
+	if (**p == '+' || **p == '-')
 	{
-		s++;
+		if (**p == '-')
+			sign = -1;
+		(*p)++;
 	}
+	return (sign);
 }
-void	free_tokens(char **tokens)
+
+
+	void	free_tokens(char **tokens)
 {
 	int	i;
 

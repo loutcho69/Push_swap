@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/24 17:32:31 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/28 15:52:33 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 static int	is_token_int(const char *s)
 {
 	int	i;
-    if (!s || s[0] == '\0')
+
+	if (!s || s[0] == '\0')
 		return (0);
 	i = 0;
 	if (s[i] == '+' || s[i] == '-')
@@ -27,7 +28,7 @@ static int	is_token_int(const char *s)
 	while (s[i])
 	{
 		if (!ft_isdigit(s[i]))
-		    return (0);
+			return (0);
 		i++;
 	}
 	return (1);
@@ -37,36 +38,37 @@ int	is_token_in_int_range(const char *s)
 {
 	int			sign;
 	int			len;
+	const char	*p;
 	const char	*limit;
 
-	sign = 1;
-	sign_checker(s);	
-	if (s[0] == '0' && s[1] != '\0') 
-	if (*s == '\0') 
-		return (0); 
-	len = 0;
-	while (s[len] && ft_isdigit(s[len]))
-		len++;
-	if (len > 10)
+	if (!s)
 		return (0);
-	if (len < 10)
-		return (1);
+	sign = sign_checker(s, &p);
+	if (*p == '\0')
+		return (0);
+	if (p[0] == '0' && p[1] != '\0')
+		return (0);
+	len = 0;
+	while (p[len] && ft_isdigit(p[len]))
+		len++;
+	if (len != 10)
+		return (len < 10);
 	if (sign == 1)
 		limit = "2147483647";
 	else
 		limit = "2147483648";
-	if (ft_strcmp_10(s, limit) > 0)
+	if (ft_strcmp_10(p, limit) > 0)
 		return (0);
 	return (1);
 }
 
 static int	has_duplicate(t_list *a, int value, int j)
 {
-    if (j != 0 && a == NULL)
+	if (j != 0 && a == NULL)
 	{
 		return (0);
 	}
-    while (j != 0 && a)
+	while (j != 0 && a)
 	{
 		if (a->content == value)
 			return (0);
@@ -76,29 +78,35 @@ static int	has_duplicate(t_list *a, int value, int j)
 }
 
 /* logiaue du code pour chaque tokens[j] :
-           - valider format -> is_int_token(char)
-           - according to the subject we only have to take int not long so just check that its between INT_MIN et INT_MAX and then atoi
-            -> is token in int range
-           - atoi avec pas de risque d'overflow
-           - doublon ? si non creer node et ajouter a stack
+		- valider format -> is_int_token(char)
+		- according to the subject we only have to take int not long so just check that its between INT_MIN et INT_MAX and then atoi
+			-> is token in int range
+		- atoi avec pas de risque d'overflow
+		- doublon ? si non creer node et ajouter a stack
 */
 
-int parse_input(int argc, char **argv, t_list **a)
+int	parse_input(int argc, char **argv, t_list **a, t_opts *opts)
 {
-    int i;
-    int j;
-    int		value;
+	int		i;
+	int		j;
+	int		value;
 	char	**tokens;
 	t_list	*node;
-      
-    i = 1;
-    j = 0;
-    if (argc <= 1)
-        return (0);
-    if (!a)
+
+	i = 1;
+	j = 0;
+	if (argc <= 1 || !a || !opts)
 		return (0);
+	opts_init(opts);
 	while (i < argc)
 	{
+		if (is_flag(argv[i]))
+		{
+			if (!parse_one_flag(argv[i], opts))
+				return (parse_error(a, NULL));
+			i++;
+			continue ;
+		}
 		tokens = ft_split(argv[i], ' ');
 		if (!tokens || !tokens[0])
 			return (parse_error(a, tokens));
@@ -116,26 +124,50 @@ int parse_input(int argc, char **argv, t_list **a)
 			if (!node)
 				return (parse_error(a, tokens));
 			ft_lstadd_back(a, node);
-            j++;
+			j++;
 		}
-	stack_print(*a);
-	printf("the stack len is %zu\n", stack_len(*a));
-	printf("the disorder is %f\n", disorder(*a));
+		stack_print(*a);
+		printf("the disorder is %f\n", disorder(*a));
+		printf("strategy = %s and bench = %d\n",
+			strat_name(opts->strat), opts->bench);
 		free_tokens(tokens);
 		i++;
 	}
-	return (0);   
-            
+	return (0);
+
 }
+
+
+/*int	parser(int argc, char **argv, t_list **a)
+{
+	parse_input(argc, argv, a);
+
+
+
+}*/
+
+
 
 /*exemple de main*/
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_list *a;
+	t_list	*a;
+	t_list	*b;
+	t_opts	opts;
+	double	d;
 
-    a = NULL;
-    parse_input(argc, argv, &a);
-    return (0);
+	a = NULL;
+	b = NULL;
+	parse_input(argc, argv, &a, &opts);
+	if (!a)
+		return (0);
 
+	d = disorder(a); /* avant les moves */
+
+	/* choisir + exécuter la stratégie ici (simple/medium/complex/adaptive) */
+	/* compter les opérations dans une structure ops */
+
+	/* si opts.bench : print sur stderr après tri */
+	return (0);
 }
