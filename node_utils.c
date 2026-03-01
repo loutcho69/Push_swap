@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 22:50:43 by lobroue           #+#    #+#             */
-/*   Updated: 2026/02/28 20:10:30 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/01 01:44:33 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@
 int	count_node(t_list *stack)
 {
 	size_t	count;
-    t_list *tmp;
+	int tmp;
 
+	tmp = stack->value;
 	count = 1;
-	while (tmp->value != tmp->next->value)
+	stack = stack->next;
+	while (tmp != stack->value)
 	{
 		++count;
-		tmp = tmp->next;
+		stack = stack->next;
 	}
     // ici c est return count ou count +1 jsp??
+	printf("%zu\n", count);
 	return (count);
 }
 void	ft_lstadd_front(t_list **stack, t_list *new_node)

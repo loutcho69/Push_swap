@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by lobroue           #+#    #+#             */
-/*   Updated: 2026/02/24 01:10:18 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/01 01:36:11 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,3 +15,5 @@
 // utiliser strjoin pour plusieurs arguments en char
 // utiliser split pour partager les arguments
 // verifier les doublons
+// Calculer la len de la liste et la stocker dans data
+// prendre ne compte les flags et penser au live coding

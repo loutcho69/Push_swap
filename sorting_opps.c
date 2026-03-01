@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:55:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/02/28 20:10:50 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/01 02:36:12 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void    swap_a(t_list **stack_a)
     
     if(!(*stack_a)->prev || !(*stack_a)->next)// ici modif
         return;
-    tmp = (*stack_a)->next->value;
-    (*stack_a)->next->value = (*stack_a)->value;
-    (*stack_a)->value = tmp;
+    tmp = (*stack_a)->next->index;
+    (*stack_a)->next->index = (*stack_a)->index;
+    (*stack_a)->index = tmp;
 }
 void    swap_b(t_list **stack_b)
 {
@@ -34,9 +34,9 @@ void    swap_b(t_list **stack_b)
     
     if(!(*stack_b)->prev || !(*stack_b)->next)
         return;
-    tmp = (*stack_b)->next->value;
-    (*stack_b)->next->value =(*stack_b)->value;
-    (*stack_b)->value = tmp;
+    tmp = (*stack_b)->next->index;
+    (*stack_b)->next->index =(*stack_b)->index;
+    (*stack_b)->index = tmp;
 }
 
 void    swap_ab(t_list **stack_a, t_list **stack_b)
@@ -69,8 +69,8 @@ void    push_a(t_list   **stack_a, t_list **stack_b)
 
 void    push_b(t_list   **stack_b, t_list **stack_a)
 {
-    // pa : push a - take the first element at the top of b and put it at the top of a. 
-    // Do nothing if b is empty.
+    // pa : push b - take the first element at the top of a and put it at the top of b. 
+    // Do nothing if a is empty.
     t_list *node;
     
     if (!(*stack_a) || !stack_a)
