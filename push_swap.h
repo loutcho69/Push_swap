@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/01 01:35:12 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/01 02:57:49 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void    rotate_a(t_list **stack_a);
 int	count_node(t_list *stack);
 void	ft_lstadd_front(t_list **stack, t_list *new_node);
 void    index_sort(t_list **stack, size_t len);
+void	ft_lstclear(t_list **lst, int len);
 
 
 # endif

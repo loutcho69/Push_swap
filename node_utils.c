@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 22:50:43 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/01 01:44:33 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/01 02:57:36 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,15 @@ t_list	*ft_lstnew(int content)
 	return (res);
 }
 
+void	ft_lstclear(t_list **lst, int len)
+{
+	t_list	*tmp;
+
+	while (len > 0)
+	{
+		tmp = (*lst)->next;
+		free(*lst);
+		*lst = tmp;
+		len--;
+	}
+}
