@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/28 19:16:34 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 14:54:04 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,9 @@ int	is_token_in_int_range(const char *s)
 	return (1);
 }
 
-static int	has_duplicate(t_list *a, int value, int j)
+static int	has_duplicate(t_list *a, int value)
 {
-	if (j != 0 && a == NULL)
-	{
-		return (0);
-	}
-	while (j != 0 && a)
+	while (a)
 	{
 		if (a->content == value)
 			return (0);
@@ -118,7 +114,9 @@ int	parse_input(int argc, char **argv, t_list **a, t_opts *opts)
 			if (!is_token_in_int_range(tokens[j]))
 				return (parse_error(a, tokens));
 			value = ft_atoi(tokens[j]);
-			if (!has_duplicate(*a, value, j))
+			printf("This is stack a : ");
+			stack_print(*a);
+			if (!has_duplicate(*a, value))
 				return (parse_error(a, tokens));
 			node = node_new(value);
 			if (!node)
