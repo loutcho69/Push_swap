@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils0.c                                           :+:      :+:    :+:   */
+/*   split_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:12 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/26 15:22:20 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 19:06:27 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../push_swap.h"
 
-size_t	ft_strlen(const char	*str)
+size_t	ft_strlen(const char	*s)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 		i++;
 	return (i);
 }
@@ -40,7 +40,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (len);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *s)
 {
 	int	i;
 	int	neg_counter;
@@ -49,18 +49,18 @@ int	ft_atoi(const char *str)
 	i = 0;
 	neg_counter = 0;
 	result = 0;
-	while ((str[i] && (str[i] >= 9 && str[i] <= 13)) || (str[i] == ' '))
+	while ((s[i] && (s[i] >= 9 && s[i] <= 13)) || (s[i] == ' '))
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (s[i] == '-' || s[i] == '+')
 	{
-		if (str[i] == '-')
+		if (s[i] == '-')
 			neg_counter += 1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (s[i] >= '0' && s[i] <= '9')
 	{
 		result *= 10;
-		result += str[i] - '0';
+		result += s[i] - '0';
 		i++;
 	}
 	if ((neg_counter % 2) == 1)
@@ -68,19 +68,19 @@ int	ft_atoi(const char *str)
 	return (result);
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_node_add_back(t_list **stack, t_list *new_node)
 {
-	t_list	*tmp;
-
-	if (!lst || !new)
+	if (!stack || !new_node)
 		return ;
-	if (*lst == NULL)
+	if (*stack == NULL)
 	{
-		*lst = new;
+		*stack = new_node;
+		new_node->next = new_node;
+		new_node->prev = new_node;
 		return ;
 	}
-	tmp = *lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = new;
+	new_node->next = *stack;
+	new_node->prev = (*stack)->prev;
+	(*stack)->prev->next = new_node;
+	(*stack)->prev = new_node;
 }
