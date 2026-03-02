@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/02 08:39:36 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/02 08:50:03 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static void simple_sort(t_list **stack_a, t_list **stack_b, size_t len)
         min--;
      }
 }
-// void    medium_sort(t_list *stack_a, t_list *stack_b)
-// {
+void    medium_sort(t_list *stack_a, t_list *stack_b)
+{
     
-// }
+}
 void    complex_sort(t_list **stack_a, t_list *stack_b, size_t len)
 {
     size_t max_bit;
