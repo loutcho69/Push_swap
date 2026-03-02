@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/01 02:57:20 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/02 08:39:36 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,34 @@ static void simple_sort(t_list **stack_a, t_list **stack_b, size_t len)
 // {
     
 // }
-// void    complex_sort()
-// {
-
-// }
+void    complex_sort(t_list **stack_a, t_list *stack_b, size_t len)
+{
+    size_t max_bit;
+    size_t  bit;
+    size_t  len1;
+    
+    max_bit = get_max_bit(len);
+    bit = 0;
+    while(bit <= max_bit)
+    {
+        len1 = len;
+        while (len1 > 0)
+        {
+            if((!(*stack_a)->index & (1 << bit)))
+                push_b(&stack_a, &stack_b);
+            else
+                rotate_a(&stack_a);
+            len1--;
+        }
+        len1 = len;
+        while (len1 > 0)
+        {
+            push_a(&stack_b, &stack_a);
+            len1--;
+        } 
+        bit++;
+    }    
+}
 #include <stdio.h>
 
 int main()
