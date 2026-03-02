@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:12:10 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/01 01:34:58 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/02 08:47:56 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,3 @@
 
 #include "push_swap.c"
 
-t_list	*ft_lstnew(int content)
-{
-	t_list	*res;
-
-	res = malloc(sizeof(t_list));
-	if (!res)
-		return (NULL);
-	res->value = content;
-	return (res);
-}
