@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/28 19:14:23 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 15:11:46 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,21 @@
 # include <unistd.h>
 # include <stdio.h> //a enlever il faut utiliser notre propre printf
 
-typedef struct s_list
+/*typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
-}	t_list;
+}	t_list;*/
+
+typedef struct s_list
+{
+	int value;
+	int index;
+	struct s_list *next;
+	struct s_list *prev;
+}		t_list;
+
+
 
 typedef enum e_strategy
 {
