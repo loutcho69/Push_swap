@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/02 08:50:03 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/02 10:59:55 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,52 @@ static void simple_sort(t_list **stack_a, t_list **stack_b, size_t len)
         min--;
      }
 }
-void    medium_sort(t_list *stack_a, t_list *stack_b)
+static void    medium_sort(t_list **stack_a, t_list **stack_b, size_t len)
 {
+    size_t  len1;
+    size_t len2;
+    size_t chunk_start;
+    size_t chunk_end;
+    size_t index;
+    size_t  chunk_count;
+
+    chunk_end = my_sqrt(len);
+    chunk_start = 0;
+    len1 = len;
+    index = len - 1;
+    chunk_count = len / my_sqrt(len);
+    
+    while(chunk_count > 0)
+    {
+        len2 = len;
+        while( len2 > 0)
+        {
+            if((*stack_a)->index >= chunk_start && (*stack_a)->index < chunk_end)
+                push_b(&stack_b, &stack_a);
+            else
+                rotate_a(&stack_a);
+            len2--;
+        }
+        chunk_start = chunk_end;
+        chunk_end = chunk_end + my_sqrt(len);
+        chunk_count--;
+    } 
+
+    while(len1 > 0 )
+    {
+        if (r_or_rv(stack_b, index))
+            while((*stack_b)->index != index)
+                rotate_b(&stack_b);
+        else
+            while((*stack_b)->index != index)
+                rev_rotate_b(&stack_b);
+        push_a(&stack_a, &stack_b);
+        len--;
+        index--;
+    }
     
 }
-void    complex_sort(t_list **stack_a, t_list *stack_b, size_t len)
+static void    complex_sort(t_list **stack_a, t_list *stack_b, size_t len)
 {
     size_t max_bit;
     size_t  bit;

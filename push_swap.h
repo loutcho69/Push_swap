@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/02 08:13:53 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/02 10:20:50 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_lstadd_front(t_list **stack, t_list *new_node);
 void    index_sort(t_list **stack, size_t len);
 void	ft_lstclear(t_list **lst, int len);
 size_t  get_max_bit(size_t len);
+int	my_sqrt(int n);
 
 
 

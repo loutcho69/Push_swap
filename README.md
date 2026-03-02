@@ -7,3 +7,5 @@ https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-t
 
 
 Radix animation: https://radix-sort-animation.netlify.app/
+
+turk/chunk animation : https://chunk-turk-algo.netlify.app/
