@@ -6,11 +6,18 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 19:00:42 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:33:18 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	flag_dispatcher(t_opts opts)
+{
+	if (opts.bench)
+		printf("ok bench active \n");
+	return(1);
+}
 
 int	main(int argc, char **argv)
 {
