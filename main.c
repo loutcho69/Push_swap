@@ -6,21 +6,27 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 16:41:04 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:55:44 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	flag_dispatcher(t_opts opts)
+static int	flag_dispatcher(t_list **stack_a, t_list **stack_b, t_opts opts)
 {
+	size_t	len;
+
+	len = stack_len(*stack_a);
 	if (opts.bench)
 		printf("bench active \n");
 	if (opts.strat == STRAT_SIMPLE)
+	{
 		printf("simple strategy chosen \n");
-	if (opts.strat == STRAT_MEDIUM)
+		simple_sort(stack_a, stack_b, len);
+	}
+	else if (opts.strat == STRAT_MEDIUM)
 		printf("medium strategy chosen \n");
-	if (opts.strat == STRAT_COMPLEX)
+	else if (opts.strat == STRAT_COMPLEX)
 		printf("complex strategy chosen \n");
 	else
 		printf("adaptive strategy chosen by default \n");
@@ -48,7 +54,10 @@ int	main(int argc, char **argv)
 	stack_print(stack_a);
 	printf("This is stack_b : ");
 	stack_print(stack_b);
-	flag_dispatcher(opts);
+	flag_dispatcher(&stack_a, &stack_b, opts);
+	printf("This is stack_a : ");
+	stack_print(stack_a);
+
 	/* choisir + exécuter la stratégie ici (simple/medium/complex/adaptive) */
 	/* un prototype des fonctions de tri par exemple serait genre
 	void sort_simple(t_list **a, t_list **b, const t_opts *opts)

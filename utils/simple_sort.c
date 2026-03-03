@@ -6,11 +6,11 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 16:33:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 16:33:56 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:48:00 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	simple_sort(t_list **stack_a, t_list **stack_b, size_t len)
 {

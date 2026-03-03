@@ -6,11 +6,11 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:56:39 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 18:59:16 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:48:08 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	has_duplicate(t_list *stack, int value)
 {

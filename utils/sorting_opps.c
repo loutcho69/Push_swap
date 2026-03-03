@@ -6,11 +6,11 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 16:29:43 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 16:29:44 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:47:51 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 //ici toutes les opperations compatbilisees
 
