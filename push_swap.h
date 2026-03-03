@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 16:28:37 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:31:04 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void		rev_rotate_b(t_list **stack_b);
 void		rev_rotate_ab(t_list **stack_a, t_list **stack_b);
 
 
-
 /* only to debug */
 void		stack_print(t_list *stack);
+
+#endif
