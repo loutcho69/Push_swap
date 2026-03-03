@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:36:39 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/03 11:57:20 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/03 18:31:43 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,20 @@ size_t	my_sqrt(size_t n)
 	i = 1;
 	while (i * i <= n)
 		i++;
+    if ( i < 2)
+        return( 1);
 	return (i - 1);
 }
-bool	r_or_rv(t_list *stack, size_t target, size_t len)
+bool	r_or_rv( size_t target, size_t len)
 {
 	size_t i;
 
 	len >>= 1;
 	i = 0;
-	while (target != stack->value)
-	{
-		stack = stack->next;
+	while (target != i)
 		i++;
-	}
 	if (i < len)
-		return (true);
+        return (true);
 	else
-		return (false);
+        return (false);
 }

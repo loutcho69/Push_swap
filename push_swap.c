@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/03 11:59:18 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/03 18:31:25 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,11 @@ static void simple_sort(t_list **stack_a, t_list **stack_b, size_t len)
 static void    push_opti(t_list **stack_a, t_list **stack_b, size_t len, size_t index)
 {
    size_t   len1;
-   t_list   *tmp;
    
-    tmp = *stack_b;
    len1 = len;
-    while(len1 > 0 )
+   while(len1 > 0 )
     {
-        if (r_or_rv(tmp, index, len))
+        if (r_or_rv(index, len))
             while((*stack_b)->index != index)
                 rotate_b(stack_b);
         else
@@ -63,14 +61,15 @@ static void    medium_sort(t_list **stack_a, t_list **stack_b, size_t len)
     size_t index;
     size_t  chunk_count;
 
-    chunk_end = my_sqrt(len);
+    // chunk_end = my_sqrt(len);
+    chunk_end = 10;
     chunk_start = 0;
     index = len - 1;
-    chunk_count = len / my_sqrt(len);
+    chunk_count = (len / 10) + 1;
     while(chunk_count > 0)
     {
         len2 = len;
-        while( len2 > 0)
+        while(len2 > 0)
         {
             if((*stack_a)->index >= chunk_start && (*stack_a)->index < chunk_end)
                 push_b(stack_b, stack_a);
@@ -79,7 +78,7 @@ static void    medium_sort(t_list **stack_a, t_list **stack_b, size_t len)
             len2--;
         }
         chunk_start = chunk_end;
-        chunk_end = chunk_end + my_sqrt(len);
+        chunk_end = chunk_end + 10;
         chunk_count--;
     }
     push_opti(stack_a, stack_b, len, index);
@@ -97,16 +96,16 @@ static void    complex_sort(t_list **stack_a, t_list **stack_b, size_t len)
         len1 = len;
         while (len1 > 0)
         {
-            if(!((*stack_a)->index & (1 << bit)))
-                push_b(stack_a, stack_b);
-            else
+            if((*stack_a)->index & (1 << bit))
                 rotate_a(stack_a);
+            else
+                push_b(stack_b, stack_a);
             len1--;
         }
         len1 = len;
         while (len1 > 0)
         {
-            push_a(stack_b, stack_a);
+            push_a(stack_a, stack_b);
             len1--;
         } 
         bit++;
@@ -127,10 +126,8 @@ int main()
     len = count_node(stack_a);
 
     
-    printf("oko\n");
     index_sort(&stack_a,len);
-    printf("okok");
-    complex_sort(&stack_a, &stack_b, len);
+    medium_sort(&stack_a, &stack_b, len);
     printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value, stack_a->next->next->value);
     printf("stack_a: %d %d %d\n", stack_a->index, stack_a->next->index, stack_a->next->next->index);
     
