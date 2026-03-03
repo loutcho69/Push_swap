@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/03 18:30:31 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/03 23:03:23 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct s_list
 // structure for datas
 typedef struct s_data
 {
-	size_t			len_list;
-
+	size_t			len_stack;
+    
 }					t_data;
 
 t_list				*ft_lstnew(int content);
@@ -52,6 +52,8 @@ void				ft_lstclear(t_list **lst, int len);
 size_t				get_max_bit(size_t len);
 size_t				my_sqrt(size_t n);
 bool	r_or_rv(size_t target, size_t len);
+void    rotate_opti(t_list **stack_a, t_list **stack_b, size_t target_min, size_t target_max);
+void	push_opti(t_list **stack_a, t_list **stack_b, size_t len);
 
 
 #endif

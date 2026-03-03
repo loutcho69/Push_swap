@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/03 18:44:14 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/03 23:03:44 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,7 @@ static void simple_sort(t_list **stack_a, t_list **stack_b, size_t len)
         min--;
     }
 }
-static void    push_opti(t_list **stack_a, t_list **stack_b, size_t len, size_t index)
-{
-   size_t   len1;
-   
-   len1 = len;
-   while(len1 > 0 )
-    {
-        if (r_or_rv(index, len))
-            while((*stack_b)->index != index)
-                rotate_b(stack_b);
-        else
-            while((*stack_b)->index != index)
-                rev_rotate_b(stack_b);
-        push_a(stack_a, stack_b);
-        len1--;
-        index--;
-    }
-}
+
 static void    medium_sort(t_list **stack_a, t_list **stack_b, size_t len)
 {
     size_t len1;
@@ -78,7 +61,7 @@ static void    medium_sort(t_list **stack_a, t_list **stack_b, size_t len)
         chunk_end = chunk_end + my_sqrt(len);
         chunk_count--;
     }
-    push_opti(stack_a, stack_b, len, (len - 1));
+    push_opti(stack_a, stack_b, len);
 }
 static void    complex_sort(t_list **stack_a, t_list **stack_b, size_t len)
 {
