@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/03 18:31:25 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/03 18:44:14 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,33 +55,30 @@ static void    push_opti(t_list **stack_a, t_list **stack_b, size_t len, size_t 
 }
 static void    medium_sort(t_list **stack_a, t_list **stack_b, size_t len)
 {
-    size_t len2;
+    size_t len1;
     size_t chunk_start;
     size_t chunk_end;
-    size_t index;
     size_t  chunk_count;
 
-    // chunk_end = my_sqrt(len);
-    chunk_end = 10;
+    chunk_end = my_sqrt(len);
     chunk_start = 0;
-    index = len - 1;
-    chunk_count = (len / 10) + 1;
+    chunk_count = (len / my_sqrt(len)) + 1;
     while(chunk_count > 0)
     {
-        len2 = len;
-        while(len2 > 0)
+        len1 = len;
+        while(len1 > 0 && (*stack_a))
         {
             if((*stack_a)->index >= chunk_start && (*stack_a)->index < chunk_end)
                 push_b(stack_b, stack_a);
             else
                 rotate_a(stack_a);
-            len2--;
+            len1--;
         }
         chunk_start = chunk_end;
-        chunk_end = chunk_end + 10;
+        chunk_end = chunk_end + my_sqrt(len);
         chunk_count--;
     }
-    push_opti(stack_a, stack_b, len, index);
+    push_opti(stack_a, stack_b, len, (len - 1));
 }
 static void    complex_sort(t_list **stack_a, t_list **stack_b, size_t len)
 {
