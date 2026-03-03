@@ -6,14 +6,12 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:55:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/03 17:23:05 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/03 21:48:12 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 //ici toutes les opperations compatbilisees
-
 void    swap_a(t_list **stack_a)
 {
     //sa : swap a - swap the first 2 elements at the top of stack a.
@@ -62,7 +60,6 @@ void    push_a(t_list   **stack_a, t_list **stack_b)
         *stack_b = NULL;
     else
     {
-        
         node->next->prev =node->prev;
         node->prev->next = node->next;
         *stack_b = node->next;
@@ -84,7 +81,6 @@ void    push_b(t_list   **stack_b, t_list **stack_a)
         *stack_a = NULL;
     else
     {
-        
         node->next->prev =node->prev;
         node->prev->next = node->next;
         *stack_a = node->next;

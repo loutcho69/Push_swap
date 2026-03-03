@@ -6,14 +6,12 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 22:50:43 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/03 17:41:18 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/03 21:48:15 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// tous les utils pour la manipulation de node ici
 #include "push_swap.h"
-
-
+// tous les utils pour la manipulation de node ici
 int	count_node(t_list *stack)
 {
 	size_t	count;
