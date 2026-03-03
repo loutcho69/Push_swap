@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 22:50:43 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/01 02:57:36 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/03 15:57:00 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	count_node(t_list *stack)
 {
 	size_t	count;
 	int tmp;
+	
 
 	tmp = stack->value;
 	count = 1;
