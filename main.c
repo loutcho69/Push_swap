@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 16:55:44 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 17:00:31 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ int	main(int argc, char **argv)
 		return (0);
 
 	d = disorder(stack_a);
-	printf("strategy = %s and bench = %d\n",
-		strat_name(opts.strat), opts.bench);
 	printf("disorder = %.3f\n", d);
 	printf("This is stack_a : ");
 	stack_print(stack_a);
@@ -57,6 +55,14 @@ int	main(int argc, char **argv)
 	flag_dispatcher(&stack_a, &stack_b, opts);
 	printf("This is stack_a : ");
 	stack_print(stack_a);
+
+	/*	-> il reste a faire la fonction de benchmark qui must display after sorting
+	- The computed disorder (% with two decimals) ici on l'a dans d
+	- The name of the strategy used and its theoretical complexity class
+	- The total number of operations.
+	- The count of each operation type (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb,
+	rrr).*/
+
 
 	/* choisir + exécuter la stratégie ici (simple/medium/complex/adaptive) */
 	/* un prototype des fonctions de tri par exemple serait genre
