@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:36:39 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/03 23:05:44 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/04 15:06:37 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ static bool	rotate_check(t_list *stack, size_t target_min, size_t target_max)
 	tmp = stack;
 	i = 0;
 	j = 1;
-	if (target_min < 0)
-		target_min = 0;
 	while (!(stack->index >= target_min && stack->index < target_max))
 	{
 		stack = stack->next;
@@ -94,12 +92,22 @@ void	push_opti(t_list **stack_a, t_list **stack_b, size_t len)
 		index--;
 	}
 }
-void	rotate_opti(t_list **stack_a, t_list **stack_b, size_t target_min,
+void	rotate_opti(t_list **stack, char c, size_t target_min,
 		size_t target_max)
 {
-	if (rotate_check((*stack_a), target_min, target_max))
-		rotate_a(stack_a);
-	else
-		rev_rotate_a(stack_a);
+	if (c == 'a')
+    {
+        if (rotate_check((*stack), target_min, target_max))
+            rotate_a(stack);
+        else
+            rev_rotate_a(stack);
+    }
+    if (c == 'b')
+    {
+        if (rotate_check((*stack), target_min, target_max))
+            rotate_b(stack);
+        else
+            rev_rotate_b(stack);
+    }
 }
 // ici faire que les fonctions soit modulaires

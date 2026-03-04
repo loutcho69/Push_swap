@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/03 23:03:44 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/04 15:12:36 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void simple_sort(t_list **stack_a, t_list **stack_b, size_t len)
 
 static void    medium_sort(t_list **stack_a, t_list **stack_b, size_t len)
 {
-    size_t len1;
+    size_t i;
     size_t chunk_start;
     size_t chunk_end;
     size_t  chunk_count;
@@ -48,14 +48,16 @@ static void    medium_sort(t_list **stack_a, t_list **stack_b, size_t len)
     chunk_count = (len / my_sqrt(len)) + 1;
     while(chunk_count > 0)
     {
-        len1 = len;
-        while(len1 > 0 && (*stack_a))
+        i = my_sqrt(len);
+        while(i > 0 && (*stack_a))
         {
             if((*stack_a)->index >= chunk_start && (*stack_a)->index < chunk_end)
+            {
                 push_b(stack_b, stack_a);
+                i--;
+            }
             else
-                rotate_a(stack_a);
-            len1--;
+                rotate_opti(stack_a, 'a',chunk_start,chunk_end);
         }
         chunk_start = chunk_end;
         chunk_end = chunk_end + my_sqrt(len);
@@ -103,6 +105,17 @@ int main()
     stack_a = ft_lstnew(84);
     ft_lstadd_front(&stack_a, ft_lstnew(-12));
     ft_lstadd_front(&stack_a, ft_lstnew(3));
+    ft_lstadd_front(&stack_a, ft_lstnew(43));
+    ft_lstadd_front(&stack_a, ft_lstnew(12));
+    ft_lstadd_front(&stack_a, ft_lstnew(-3));
+    ft_lstadd_front(&stack_a, ft_lstnew(92378));
+    ft_lstadd_front(&stack_a, ft_lstnew(-333));
+    ft_lstadd_front(&stack_a, ft_lstnew(0));
+    ft_lstadd_front(&stack_a, ft_lstnew(76));
+    ft_lstadd_front(&stack_a, ft_lstnew(45));
+    ft_lstadd_front(&stack_a, ft_lstnew(-4));
+    ft_lstadd_front(&stack_a, ft_lstnew(-4555));
+
     len = count_node(stack_a);
 
     
