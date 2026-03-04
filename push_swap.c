@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/04 22:33:47 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/04 23:00:04 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,46 +36,44 @@ static void simple_sort(t_list **stack_a, t_list **stack_b, size_t len)
     }
 }
 
-static void    medium_sort(t_list **stack_a, t_list **stack_b, size_t len)
+static void    medium_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 {
     size_t i;
-    size_t chunk_start;
-    size_t chunk_end;
-    size_t  chunk_count;
 
-    chunk_end = my_sqrt(len);
-    chunk_start = 0;
-    chunk_count = (len / my_sqrt(len)) + 1;
-    while(chunk_count > 0)
+    data->chunk_size = my_sqrt(data->len_stack);
+    data->chunk_end = data->chunk_size;
+    data->chunk_start = 0;
+    data->chunk_count = (data->len_stack / data->chunk_size) + 1;
+    while(data->chunk_count > 0)
     {
-        i = my_sqrt(len);
+        i = data->chunk_size;
         while(i > 0 && (*stack_a))
         {
-            if((*stack_a)->index >= chunk_start && (*stack_a)->index < chunk_end)
+            if((*stack_a)->index >= data->chunk_start && (*stack_a)->index < data->chunk_end)
             {
                 push_b(stack_b, stack_a);
                 i--;
             }
             else
-                rotate_opti(stack_a, 'a',chunk_start,chunk_end);
+                rotate_opti(stack_a, 'a',data->chunk_start,data->chunk_end);
         }
-        chunk_start = chunk_end;
-        chunk_end = chunk_end + my_sqrt(len);
-        chunk_count--;
+        data->chunk_start = data->chunk_end;
+        data->chunk_end = data->chunk_end + data->chunk_size;
+        data->chunk_count--;
     }
-    push_opti(stack_a, stack_b, len);
+    push_opti(stack_a, stack_b, data->len_stack);
 }
-static void    complex_sort(t_list **stack_a, t_list **stack_b, size_t len)
+static void    complex_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 {
     size_t max_bit;
     size_t  bit;
     size_t  len1;
     
-    max_bit = get_max_bit(len);
+    max_bit = get_max_bit(data->len_stack);
     bit = 0;
     while(bit <= max_bit)
     {
-        len1 = len;
+        len1 = data->len_stack;
         while (len1 > 0)
         {
             if((*stack_a)->index & (1 << bit))
@@ -84,7 +82,7 @@ static void    complex_sort(t_list **stack_a, t_list **stack_b, size_t len)
                 push_b(stack_b, stack_a);
             len1--;
         }
-        len1 = len;
+        len1 = data->len_stack;
         while (len1 > 0)
         {
             push_a(stack_a, stack_b);
@@ -99,6 +97,7 @@ int main()
 {
     t_list *stack_a;
     t_list *stack_b;
+    t_data data;
     int len;
 
     stack_b = NULL;
@@ -116,11 +115,11 @@ int main()
     // ft_lstadd_front(&stack_a, ft_lstnew(-4));
     // ft_lstadd_front(&stack_a, ft_lstnew(-4555));
 
-    len = count_node(stack_a);
+    data.len_stack = count_node(stack_a);
 
     
-    index_sort(&stack_a,len);
-    complex_sort(&stack_a, &stack_b, len);
+    index_sort(&stack_a,data.len_stack);
+    medium_sort(&stack_a, &stack_b, &data);
     printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value, stack_a->next->next->value);
     printf("stack_a: %d %d %d\n", stack_a->index, stack_a->next->index, stack_a->next->next->index);
     
