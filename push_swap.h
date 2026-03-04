@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/04 15:09:44 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/04 22:32:20 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_data
     size_t          chunk_start;
     size_t          chunk_end;
     size_t          chunk_count;
+    size_t          opss_count;
     
 }					t_data;
 

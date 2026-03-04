@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:36:39 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/04 15:06:37 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/04 22:32:57 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ size_t	my_sqrt(size_t n)
 		i++;
 	return (i - 1);
 }
-bool	r_or_rv(size_t target, size_t len)
-{
-	size_t	i;
+// bool	r_or_rv(size_t target, size_t len)
+// {
+// 	size_t	i;
 
-	len >>= 1;
-	i = 0;
-	while (target != i)
-		i++;
-	if (i < len)
-		return (true);
-	else
-		return (false);
-}
+// 	len >>= 1;
+// 	i = 0;
+// 	while (target != i)
+// 		i++;
+// 	if (i < len)
+// 		return (true);
+// 	else
+// 		return (false);
+// }
 static bool	rotate_check(t_list *stack, size_t target_min, size_t target_max)
 {
 	size_t	i;
