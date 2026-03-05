@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 14:45:40 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:53:27 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct s_opts
 t_list		*node_new(int value);
 void		stack_clear(t_list **stack);
 char		**ft_split(char const *s, char c);
-int			parse_input(int argc, char **argv, t_list **stack, t_opts *opts);
+int			parse_input(int argc, char **argv, t_list **stack, t_opts *opts, t_data *data);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlen(const char	*s);
 int			ft_atoi(const char *s);
@@ -78,6 +78,14 @@ int			is_token_in_int_range(const char *s);
 int			is_token_int(const char *s);
 void		ft_node_add_front(t_list **stack, t_list *new_node);
 void		data_init(t_data *data);
+
+/*sort utils*/
+
+size_t		get_max_bit(size_t len);
+size_t		my_sqrt(size_t n);
+void		push_opti(t_list **stack_a, t_list **stack_b, size_t len);
+void		rotate_opti(t_list **stack, char c, size_t target_min,
+				size_t target_max);
 
 /*sorting opps*/
 

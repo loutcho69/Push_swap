@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 14:40:29 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:49:42 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	parse_input(argc, argv, &stack_a, &opts);
+	parse_input(argc, argv, &stack_a, &opts, &data);
 	if (!stack_a)
 		return (0);
 

@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:24:13 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 14:41:30 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:59:13 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	medium_sort(t_list **stack_a, t_list **stack_b, t_data *data) //je vais pe 
 		i = data->chunk_size;
 		while (i > 0 && (*stack_a))
 		{
-			if ((*stack_a)->index >= data->chunk_start
-				&& (*stack_a)->index < data->chunk_end)
+			if ((size_t)(*stack_a)->index >= data->chunk_start
+				&& (size_t)(*stack_a)->index < data->chunk_end) //on a tjrs le pb ici que index est un int faut quon le mette en size_t car on le compare a len dautant que index est jamais negatif
 			{
 				push_b(stack_b, stack_a);
 				i--;

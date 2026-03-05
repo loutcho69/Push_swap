@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 17:21:15 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:47:21 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	parse_one_arg(char *arg, t_list **stack)
 	return (1);
 }
 
-int	parse_input(int argc, char **argv, t_list **stack, t_opts *opts)
+int	parse_input(int argc, char **argv, t_list **stack, t_opts *opts, t_data *data)
 {
 	int		i;
 	size_t	len;
@@ -57,6 +57,7 @@ int	parse_input(int argc, char **argv, t_list **stack, t_opts *opts)
 	if (argc <= 1 || !stack || !opts)
 		return (0);
 	opts_init(opts);
+	data_init(data);
 	i = 1;
 	while (i < argc)
 	{
