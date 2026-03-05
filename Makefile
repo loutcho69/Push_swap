@@ -14,6 +14,7 @@ SRC = parser.c \
 	algorithms/simple_sort.c \
 	algorithms/medium_sort.c \
 	utils/sorting_opps.c \
+	utils/sort_utils.c \
 #tu captes la syntaxe pour les fonctions dans un fichier pour que le nakefile les retrouve
 
 SRC_BONUS =

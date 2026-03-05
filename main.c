@@ -6,13 +6,14 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 17:26:56 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:40:29 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	flag_dispatcher(t_list **stack_a, t_list **stack_b, t_opts opts)
+static int	flag_dispatcher(t_list **stack_a, t_list **stack_b,
+	t_opts opts, t_data data)
 {
 	size_t	len;
 
@@ -25,7 +26,10 @@ static int	flag_dispatcher(t_list **stack_a, t_list **stack_b, t_opts opts)
 		simple_sort(stack_a, stack_b, len);
 	}
 	else if (opts.strat == STRAT_MEDIUM)
+	{
 		printf("medium strategy chosen \n");
+		medium_sort(stack_a, stack_b, &data);
+	}
 	else if (opts.strat == STRAT_COMPLEX)
 		printf("complex strategy chosen \n");
 	else
@@ -38,6 +42,7 @@ int	main(int argc, char **argv)
 	t_list	*stack_a;
 	t_list	*stack_b;
 	t_opts	opts;
+	t_data	data;
 	float	d;
 
 	stack_a = NULL;
@@ -52,7 +57,7 @@ int	main(int argc, char **argv)
 	stack_print(stack_a);
 	printf("This is stack_b : ");
 	stack_print(stack_b);
-	flag_dispatcher(&stack_a, &stack_b, opts);
+	flag_dispatcher(&stack_a, &stack_b, opts, data);
 	printf("This is stack_a : ");
 	stack_print(stack_a);
 

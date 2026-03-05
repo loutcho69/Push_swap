@@ -6,13 +6,15 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:24:13 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 14:27:24 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:41:30 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	medium_sort(t_list **stack_a, t_list **stack_b, t_data *data)
+//Pe faire renvoyer 1 ou 0 a cette fonction pour renvoyer une erreur si erreur
+
+void	medium_sort(t_list **stack_a, t_list **stack_b, t_data *data) //je vais pe faire une init de data comme jai une init de opts pour tout mettre a 0 au debut
 {
 	size_t	i;
 
