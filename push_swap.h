@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 14:53:27 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 16:19:28 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_opts
 {
 	int			bench;
 	int			strat_forced;
-	t_strategy	strat;
+	t_strategy	strategy;
 }	t_opts;
 
 t_list		*node_new(int value);
@@ -105,6 +105,10 @@ void		rev_rotate_ab(t_list **stack_a, t_list **stack_b);
 
 void		medium_sort(t_list **stack_a, t_list **stack_b, t_data *data);
 void		simple_sort(t_list **stack_a, t_list **stack_b, size_t len);
+
+/*print bench*/
+
+int			print_bench(t_data *data, t_opts *opts);
 
 /* only to debug */
 void		stack_print(t_list *stack);

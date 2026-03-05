@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 14:59:27 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 15:36:07 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 16:21:29 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	opts_init(t_opts *o)
 {
 	o->bench = 0;
 	o->strat_forced = 0;
-	o->strat = STRAT_ADAPTIVE;
+	o->strategy = STRAT_ADAPTIVE;
 }
 
 void	data_init(t_data *data)
@@ -36,9 +36,9 @@ void	data_init(t_data *data)
 
 int	set_strategy(t_opts *o, t_strategy s)
 {
-	if (o->strat_forced) //est-ce quon accepte --simple --simple ? si oui ajouter && o->strat != s mais je pense y a pas de raison daccepter ca
+	if (o->strat_forced) //est-ce quon accepte --simple --simple ? si oui ajouter && o->strategy != s mais je pense y a pas de raison daccepter ca
 		return (0);
-	o->strat = s;
+	o->strategy = s;
 	o->strat_forced = 1;
 	return (1);
 }

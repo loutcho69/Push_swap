@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 15:21:56 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 16:20:34 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ static int	flag_dispatcher(t_list **stack_a, t_list **stack_b,
 	len = stack_len(*stack_a);
 	if (opts.bench)
 		printf("bench active \n");
-	if (opts.strat == STRAT_SIMPLE)
+	if (opts.strategy == STRAT_SIMPLE)
 	{
 		printf("simple strategy chosen \n");
 		simple_sort(stack_a, stack_b, len);
 	}
-	else if (opts.strat == STRAT_MEDIUM)
+	else if (opts.strategy == STRAT_MEDIUM)
 	{
 		printf("medium strategy chosen \n");
 		medium_sort(stack_a, stack_b, &data);
 	}
-	else if (opts.strat == STRAT_COMPLEX)
+	else if (opts.strategy == STRAT_COMPLEX)
 		printf("complex strategy chosen \n");
 	else
 		printf("adaptive strategy chosen by default \n");
