@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 14:49:42 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 15:21:56 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,7 @@ int	main(int argc, char **argv)
 	printf("This is stack_a : ");
 	stack_print(stack_a);
 
-	/*	TODO
-	-> il reste a faire la fonction de benchmark qui must display after sorting
-	- The computed disorder (% with two decimals) ici on l'a dans d
-	- The name of the strategy used and its theoretical complexity class
-	- The total number of operations.
-	- The count of each operation type (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb,
-	rrr).*/
+
 
 
 	/* choisir + exécuter la stratégie ici (simple/medium/complex/adaptive) */

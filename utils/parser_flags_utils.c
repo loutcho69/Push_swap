@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 14:59:27 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 14:49:16 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 15:36:07 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ void	opts_init(t_opts *o)
 	o->strat_forced = 0;
 	o->strat = STRAT_ADAPTIVE;
 }
-void data_init(t_data *data)
+
+void	data_init(t_data *data)
 {
 	data->len_stack = 0;
 	data->chunk_start = 0;
 	data->chunk_end = 0;
 	data->chunk_count = 0;
 	data->chunk_size = 0;
-	data->opss_count = 0;
+	data->opss_count = 0; //opps
 }
 
 int	set_strategy(t_opts *o, t_strategy s)
