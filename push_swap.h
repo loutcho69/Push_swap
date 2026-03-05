@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 16:31:04 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 14:26:27 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,13 @@ typedef struct s_list
 
 typedef struct s_data
 {
-	size_t	len_list;
-}	t_data;
+	size_t			len_stack;
+	size_t			chunk_start;
+	size_t			chunk_end;
+	size_t			chunk_count;
+	size_t			chunk_size;
+	size_t			opss_count; //opss ou opps
+}					t_data;
 
 typedef enum e_strategy
 {
