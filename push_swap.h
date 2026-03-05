@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/04 22:57:27 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/05 20:15:12 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct s_list
 {
 	int				value;
-	int				index;
+	size_t				index;
 	struct s_list	*next;
 	struct s_list	*prev;
 }					t_list;

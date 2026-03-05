@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/04 23:00:04 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/05 20:16:58 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ int main()
     index_sort(&stack_a,data.len_stack);
     medium_sort(&stack_a, &stack_b, &data);
     printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value, stack_a->next->next->value);
-    printf("stack_a: %d %d %d\n", stack_a->index, stack_a->next->index, stack_a->next->next->index);
+    printf("stack_a: %zu %zu %zu\n", stack_a->index, stack_a->next->index, stack_a->next->next->index);
     
     ft_lstclear(&stack_a, len);
     
