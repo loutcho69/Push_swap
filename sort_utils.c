@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:36:39 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/04 22:32:57 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/05 22:05:35 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,34 @@ void	rotate_opti(t_list **stack, char c, size_t target_min,
         else
             rev_rotate_b(stack);
     }
+}
+
+void	simple_sort_three(t_list **stack_a, t_list **stack_b)
+{
+	if ((*stack_a)->index == 0 && (*stack_a)->next->index == 1)
+		return;
+	else if ((*stack_a)->index == 0 && (*stack_a)->next->index == 2)
+	{
+		swap_a(stack_a);
+		rotate_a(stack_a);
+	}
+	else if ((*stack_a)->index == 1 && (*stack_a)->next->index == 0)
+		swap_a(stack_a);
+	else if ((*stack_a)->index == 1 && (*stack_a)->next->index == 2)
+		rev_rotate_a(stack_a);
+	else if ((*stack_a)->index == 2 && (*stack_a)->next->index == 0)
+		rotate_a(stack_a);
+	else if ((*stack_a)->index == 2 && (*stack_a)->next->index == 1)
+	{
+		swap_a(stack_a);
+		rev_rotate_a(stack_a);
+	}	
+}
+void	simple_sort_two(t_list **stack_a, t_list **stack_b)
+{
+	if((*stack_a)->index == 0)
+		return;
+	else
+		swap_a(stack_a);
 }
 // ici faire que les fonctions soit modulaires
