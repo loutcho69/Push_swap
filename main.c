@@ -6,11 +6,13 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 16:30:26 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 16:34:25 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//les branchements avec les algos de tri vont se faire ici dans le flag dispatcher
 
 static int	flag_dispatcher(t_list **stack_a, t_list **stack_b,
 	t_opts *opts, t_data *data)
@@ -28,7 +30,7 @@ static int	flag_dispatcher(t_list **stack_a, t_list **stack_b,
 	else if (opts->strategy == STRAT_MEDIUM)
 	{
 		printf("medium strategy chosen \n");
-		medium_sort(stack_a, stack_b, &data);
+		medium_sort(stack_a, stack_b, data);
 	}
 	else if (opts->strategy == STRAT_COMPLEX)
 		printf("complex strategy chosen \n");
@@ -52,7 +54,7 @@ int	main(int argc, char **argv)
 		return (0);
 
 	d = disorder(stack_a);
-	data.disorder = d;
+	// data.disorder = d;
 	printf("disorder = %.3f\n", d);
 	printf("This is stack_a : ");
 	stack_print(stack_a);

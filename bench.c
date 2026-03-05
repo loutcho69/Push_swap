@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 15:20:47 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 16:21:02 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 16:47:51 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ int	print_bench(t_data *data, t_opts *opts) // a print sur stderr
 {
 	int	disorder_percent;
 
-	disorder_percent = data->disorder * 10000; //juste a voir de combien est le disorder
+	disorder_percent = data->disorder * 10000; //juste a voir de combien est le disorder pour lavoir en %
 	ft_printf("[bench] disorder: ", 2);
 	ft_putnbr_fd(disorder_percent, 2, 0);
-	ft_printf("[bench] strategy: %s / %s\n", 2, opts->strat, parse_complexity(opts->strat))); //il faut aussi ecrire la theoretical complexity class
+	ft_printf("[bench] strategy: %s / %s\n", 2, opts->strategy, parse_complexity(opts->strategy))); //il faut aussi ecrire la theoretical complexity class
 	ft_printf("[bench] total_ops: %d\n", 2, data->opss_count);
 	ft_printf("[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n", 2, data->sa,
 		data->sb, data->ss, data->pa, data->pb);

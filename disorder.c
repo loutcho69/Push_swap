@@ -6,11 +6,11 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:20:28 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 19:02:46 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 16:48:41 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h" 
+#include "push_swap.h"
 
 static int	get_nth_content(t_list *stack, size_t i)
 {
@@ -47,7 +47,7 @@ size_t	stack_len(t_list *stack)
 }
 // ici possibilite de faire le disorder en une seule fonction en utilisant ->next pour comparer
 
-void	count_mistakes_and_pairs(float *mistakes,
+static void	count_mistakes_and_pairs(float *mistakes,
 float *total_pairs, size_t len, t_list *stack) //jai mis le i directement la dedans au lieu de lextraire d la fonction disorder
 {
 	size_t	i;
