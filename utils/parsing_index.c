@@ -6,13 +6,13 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 15:39:53 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 14:42:35 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 17:24:18 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	index_sort(t_list **stack, size_t len)
+void	index_sort(t_list **stack, size_t len) //pb ici on perd la tete de stack jai peur que ca pose des pbs plus tard
 {
 	size_t	i;
 	size_t	len1;
