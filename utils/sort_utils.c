@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:29:53 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 14:30:25 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 15:01:43 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ static bool	rotate_check(t_list *stack, size_t target_min, size_t target_max)
 	tmp = stack;
 	i = 0;
 	j = 1;
-	while (!(stack->index >= target_min && stack->index < target_max))
+	while (!((size_t)stack->index >= target_min && (size_t)stack->index < target_max))
 	{
 		stack = stack->next;
 		i++;
 	}
-	while (!(tmp->index >= target_min && tmp->index < target_max))
+	while (!((size_t)tmp->index >= target_min && (size_t)tmp->index < target_max))
 	{
 		tmp = tmp->prev;
 		j++;
@@ -84,11 +84,11 @@ void	push_opti(t_list **stack_a, t_list **stack_b, size_t len)
 	{
 		if (rotate_check((*stack_b), index, (index + 1)))
 		{
-			while ((*stack_b)->index != index)
+			while ((size_t)(*stack_b)->index != index)
 				rotate_b(stack_b);
 		}
 		else
-			while ((*stack_b)->index != index)
+			while ((size_t)(*stack_b)->index != index)
 				rev_rotate_b(stack_b);
 		push_a(stack_a, stack_b);
 		index--;
