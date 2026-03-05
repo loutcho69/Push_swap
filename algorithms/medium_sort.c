@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:24:13 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 15:09:11 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/05 16:29:51 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 void	medium_sort(t_list **stack_a, t_list **stack_b, t_data *data) //je vais pe faire une init de data comme jai une init de opts pour tout mettre a 0 au debut
 {
 	size_t	i;
-	printf("chunk_size")
 	data->chunk_size = my_sqrt(data->len_stack);
 	data->chunk_end = data->chunk_size;
 	data->chunk_start = 0;
