@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:29:05 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 04:32:07 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	main(void)
 	t_data data;
 	int len;
 
-	stack_b = NULL;
+	stack_b = NULL; // tres important
 	stack_a = ft_lstnew(1);
 	ft_lstadd_front(&stack_a, ft_lstnew(2));
 	ft_lstadd_front(&stack_a, ft_lstnew(0));
