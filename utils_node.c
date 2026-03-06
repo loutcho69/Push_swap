@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   node_utils.c                                       :+:      :+:    :+:   */
+/*   utils_node.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 22:50:43 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:53:05 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 22:45:09 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,20 @@ void	ft_lstclear(t_list **lst, int len)
 		*lst = tmp;
 		len--;
 	}
+}
+void	ft_lstadd_back(t_list **stack, t_list *new_node)
+{
+	if (!stack || !new_node)
+		return ;
+	if (*stack == NULL)
+	{
+		*stack = new_node;
+		new_node->next = new_node;
+		new_node->prev = new_node;
+		return ;
+	}
+	new_node->next = *stack;
+	new_node->prev = (*stack)->prev;
+	(*stack)->prev->next = new_node;
+	(*stack)->prev = new_node;
 }
