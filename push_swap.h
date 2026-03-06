@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:53:55 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 04:55:59 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-// structure for stack A & B
 typedef struct s_list
 {
 	int				value;
@@ -27,7 +26,6 @@ typedef struct s_list
 	struct s_list	*prev;
 }					t_list;
 
-// structure for datas
 typedef struct s_data
 {
 	size_t			len_stack;
