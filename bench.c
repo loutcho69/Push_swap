@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 15:20:47 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 17:28:05 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/06 21:47:14 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,4 @@ int	print_bench(t_data *data, t_opts *opts) // a print sur stderr
 	ft_printf("[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %d\n", 2,
 		data->ra, data->rb, data->rr, data->rra, data->rrb, data->rrr);
 }
+
