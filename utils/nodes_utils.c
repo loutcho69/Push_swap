@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 15:34:15 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 16:31:46 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/06 22:38:57 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,34 +44,6 @@ void	stack_clear(t_list **stack)
 	}
 	free(head);
 	*stack = NULL;
-}
-
-//utile que pou rle debug attention a bien virer apres
-void	stack_print(t_list *head)
-{
-	size_t	len;
-	t_list	*cur;
-	size_t	i;
-
-	if (!head)
-	{
-		printf("NULL\n");
-		return ;
-	}
-	len = stack_len(head);
-	cur = head;
-	i = 0;
-	while (i < len)
-	{
-		printf("%d", cur->value);
-		printf(" (idx=%d)", cur->index);
-		if (i + 1 < len)
-			printf(" <-> ");
-		else
-			printf(" <-> (back to head)\n");
-		cur = cur->next;
-		i++;
-	}
 }
 
 void	ft_node_add_front(t_list **stack, t_list *new_node)
