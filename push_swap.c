@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:17:02 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 04:29:05 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,12 @@ static void	simple_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 		simple_sort_two(stack_a, data);
 	else if (data->len_stack == 3)
 		simple_sort_three(stack_a, data);
+	else if (data->len_stack == 4)
+		simple_sort_four(stack_a, stack_b, data);
 	else if (data->len_stack == 5)
 		simple_sort_five(stack_a, stack_b, data);
 	else
-	{
-		while (data->target_min < data->len_stack)
-		{
-			while ((*stack_a)->index != data->target_min)
-			{
-				data->target_max = data->target_min + 1;
-				rotate_opti(stack_a, 'a', data);
-			}
-			push_b(stack_b, stack_a, data);
-			data->target_min++;
-		}
-		while (data->target_min > 0)
-		{
-			push_a(stack_a, stack_b, data);
-			data->target_min--;
-		}
-	}
+		simple_sort_generic(stack_a, stack_b, data);
 }
 
 static void	medium_sort(t_list **stack_a, t_list **stack_b, t_data *data)
@@ -83,7 +69,7 @@ static void	complex_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 		len = data->len_stack;
 		while (len > 0)
 		{
-			if ((*stack_a)->index & (1 << bit))
+			if ((*stack_a)->index & ((size_t)1 << bit))
 				rotate_a(stack_a, data);
 			else
 				push_b(stack_b, stack_a, data);
@@ -111,16 +97,16 @@ int	main(void)
 	stack_a = ft_lstnew(1);
 	ft_lstadd_front(&stack_a, ft_lstnew(2));
 	ft_lstadd_front(&stack_a, ft_lstnew(0));
-	// ft_lstadd_front(&stack_a, ft_lstnew(43));
-	// ft_lstadd_front(&stack_a, ft_lstnew(12));
-	// ft_lstadd_front(&stack_a, ft_lstnew(-3));
-	// ft_lstadd_front(&stack_a, ft_lstnew(92378));
-	// ft_lstadd_front(&stack_a, ft_lstnew(-333));
-	// ft_lstadd_front(&stack_a, ft_lstnew(0));
-	// ft_lstadd_front(&stack_a, ft_lstnew(76));
-	// ft_lstadd_front(&stack_a, ft_lstnew(45));
-	// ft_lstadd_front(&stack_a, ft_lstnew(-4));
-	// ft_lstadd_front(&stack_a, ft_lstnew(-4555));
+	ft_lstadd_front(&stack_a, ft_lstnew(43));
+	ft_lstadd_front(&stack_a, ft_lstnew(12));
+	ft_lstadd_front(&stack_a, ft_lstnew(-3));
+	ft_lstadd_front(&stack_a, ft_lstnew(92378));
+	ft_lstadd_front(&stack_a, ft_lstnew(-333));
+	ft_lstadd_front(&stack_a, ft_lstnew(9090));
+	ft_lstadd_front(&stack_a, ft_lstnew(76));
+	ft_lstadd_front(&stack_a, ft_lstnew(45));
+	ft_lstadd_front(&stack_a, ft_lstnew(-4));
+	ft_lstadd_front(&stack_a, ft_lstnew(-4555));
 
 	init_values_data(&stack_a, &data);
 
@@ -128,7 +114,7 @@ int	main(void)
 		index_sort(&stack_a, data.len_stack);
 		// printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value,stack_a->next->next->value);
 		// printf("stack_a: %zu %zu %zu\n", stack_a->index,stack_a->next->index,stack_a->next->next->index);
-		simple_sort(&stack_a, &stack_b, &data);
+		complex_sort(&stack_a, &stack_b, &data);
 		printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value,stack_a->next->next->value);
 		printf("stack_a: %zu %zu %zu\n", stack_a->index, stack_a->next->index,stack_a->next->next->index);
 		printf("Count opps : %zu\n", data.opps_count);

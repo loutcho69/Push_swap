@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:07:32 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 04:26:20 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,11 @@ void				push_opti(t_list **stack_a, t_list **stack_b, t_data *data);
 void				index_sort(t_list **stack, size_t len);
 void				simple_sort_three(t_list **stack_a, t_data *data);
 void				simple_sort_two(t_list **stack_a, t_data *data);
+void				simple_sort_four(t_list **stack_a, t_list **stack_b,
+						t_data *data);
 void				simple_sort_five(t_list **stack_a, t_list **stack_b,
+						t_data *data);
+void				simple_sort_generic(t_list **stack_a, t_list **stack_b,
 						t_data *data);
 ////////////////STRCUT_UTILS////////////////////////////////
 void				init_values_data(t_list **stack, t_data *data);
