@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 14:59:27 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 16:21:29 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/06 22:26:04 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,9 @@ void	opts_init(t_opts *o)
 	o->strategy = STRAT_ADAPTIVE;
 }
 
-void	data_init(t_data *data)
-{
-	data->len_stack = 0;
-	data->chunk_start = 0;
-	data->chunk_end = 0;
-	data->chunk_count = 0;
-	data->chunk_size = 0;
-	data->opss_count = 0; //opps
-}
-
 int	set_strategy(t_opts *o, t_strategy s)
 {
-	if (o->strat_forced) //est-ce quon accepte --simple --simple ? si oui ajouter && o->strategy != s mais je pense y a pas de raison daccepter ca
+	if (o->strat_forced)
 		return (0);
 	o->strategy = s;
 	o->strat_forced = 1;
@@ -61,15 +51,4 @@ int	parse_one_flag(const char *s, t_opts *o)
 	if (ft_strcmp(s, "--adaptive") == 0)
 		return (set_strategy(o, STRAT_ADAPTIVE));
 	return (0);
-}
-
-const char	*strat_name(t_strategy strategy)
-{
-	if (strategy == STRAT_SIMPLE)
-		return ("simple");
-	if (strategy == STRAT_MEDIUM)
-		return ("medium");
-	if (strategy == STRAT_COMPLEX)
-		return ("complex");
-	return ("adaptive");
 }

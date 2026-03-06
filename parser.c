@@ -6,20 +6,11 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 14:47:21 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/06 22:36:16 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h> //replace printf with our ft_printf do not forget
-
-/* logiaue du code pour chaque tokens[j] :
-           - valider format -> is_int_token(char)
-           - according to the subject we only have to take int not long so just check that its between INT_MIN et INT_MAX and then atoi
-            -> is token in int range
-           - atoi avec pas de risque d'overflow
-           - doublon ? si non creer node et ajouter a stack
-*/
 
 static int	parse_one_arg(char *arg, t_list **stack)
 {
@@ -49,7 +40,8 @@ static int	parse_one_arg(char *arg, t_list **stack)
 	return (1);
 }
 
-int	parse_input(int argc, char **argv, t_list **stack, t_opts *opts, t_data *data)
+int	parse_input(int argc, char **argv, t_list **stack,
+	t_opts *opts, t_data *data)
 {
 	int		i;
 	size_t	len;
@@ -77,4 +69,3 @@ int	parse_input(int argc, char **argv, t_list **stack, t_opts *opts, t_data *dat
 	}
 	return (0);
 }
-

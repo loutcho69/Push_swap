@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 16:19:28 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/06 22:33:39 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
-# include <stdio.h> //a enlever il faut utiliser notre propre printf
 
 typedef struct s_list
 {
@@ -25,16 +24,6 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 }	t_list;
-
-typedef struct s_data
-{
-	size_t			len_stack;
-	size_t			chunk_start;
-	size_t			chunk_end;
-	size_t			chunk_count;
-	size_t			chunk_size;
-	size_t			opss_count; //opss ou opps
-}					t_data;
 
 typedef enum e_strategy
 {
@@ -51,66 +40,40 @@ typedef struct s_opts
 	t_strategy	strategy;
 }	t_opts;
 
+/* node / stack utils */
 t_list		*node_new(int value);
-void		stack_clear(t_list **stack);
-char		**ft_split(char const *s, char c);
-int			parse_input(int argc, char **argv, t_list **stack, t_opts *opts, t_data *data);
-size_t		ft_strlcpy(char *dst, const char *src, size_t size);
-size_t		ft_strlen(const char	*s);
-int			ft_atoi(const char *s);
 void		ft_node_add_back(t_list **stack, t_list *new_node);
-int			sign_checker(const char *s, const char **p);
-int			ft_isdigit(char c);
-int			ft_strcmp_10(const char *s1, const char *s2);
-void		free_tokens(char **tokens);
-int			parse_error(t_list **stack, char **tokens);
-size_t		stack_len(t_list *stack);
-float		disorder(t_list *stack);
-int			ft_strcmp(const char *s1, const char *s2);
-int			is_flag(const char *s);
-int			set_strategy(t_opts *o, t_strategy s);
-int			parse_one_flag(const char *s, t_opts *o);
-void		opts_init(t_opts *o);
-const char	*strat_name( t_strategy strategy);
-void		index_sort(t_list **stack, size_t len);
-int			has_duplicate(t_list *stack, int value);
-int			is_token_in_int_range(const char *s);
-int			is_token_int(const char *s);
 void		ft_node_add_front(t_list **stack, t_list *new_node);
-void		data_init(t_data *data);
+void		stack_clear(t_list **stack);
+size_t		stack_len(t_list *stack);
+int			has_duplicate(t_list *stack, int value);
 
-/*sort utils*/
+/* parsing / options */
+int			parse_input(int argc, char **argv, t_list **stack,
+				t_opts *opts, t_data *data);
+int			parse_error(t_list **stack, char **tokens);
+char		**ft_split(char const *s, char c);
+void		free_tokens(char **tokens);
+int			sign_checker(const char *s, const char **p);
+int			is_token_int(const char *s);
+int			is_token_in_int_range(const char *s);
+int			is_flag(const char *s);
+int			parse_one_flag(const char *s, t_opts *o);
+int			set_strategy(t_opts *o, t_strategy s);
+void		opts_init(t_opts *o);
 
-size_t		get_max_bit(size_t len);
-size_t		my_sqrt(size_t n);
-void		push_opti(t_list **stack_a, t_list **stack_b, size_t len);
-void		rotate_opti(t_list **stack, char c, size_t target_min,
-				size_t target_max);
+/* string / helpers */
+int			ft_atoi(const char *s);
+int			ft_isdigit(char c);
+int			ft_strcmp(const char *s1, const char *s2);
+int			ft_strcmp_10(const char *s1, const char *s2);
+size_t		ft_strlcpy(char *dst, const char *src, size_t size);
+size_t		ft_strlen(const char *s);
 
-/*sorting opps*/
+/* algorithm helpers */
+float		disorder(t_list *stack);
 
-void		swap_a(t_list **stack_a);
-void		swap_b(t_list **stack_b);
-void		swap_ab(t_list **stack_a, t_list **stack_b);
-void		push_a(t_list **stack_a, t_list **stack_b);
-void		push_b(t_list **stack_b, t_list **stack_a);
-void		rotate_a(t_list **stack_a);
-void		rotate_b(t_list **stack_b);
-void		rotate_ab(t_list **stack_a, t_list **stack_b);
-void		rev_rotate_a(t_list **stack_a);
-void		rev_rotate_b(t_list **stack_b);
-void		rev_rotate_ab(t_list **stack_a, t_list **stack_b);
-
-/*algorithms*/
-
-void		medium_sort(t_list **stack_a, t_list **stack_b, t_data *data);
-void		simple_sort(t_list **stack_a, t_list **stack_b, size_t len);
-
-/*print bench*/
-
+/* bench / printing */
 int			print_bench(t_data *data, t_opts *opts);
-
-/* only to debug */
-void		stack_print(t_list *stack);
 
 #endif

@@ -11,13 +11,9 @@ SRC = parser.c \
 	utils/utils.c \
 	utils/parser_utils2.c \
 	main.c \
-	algorithms/simple_sort.c \
-	algorithms/medium_sort.c \
-	utils/sorting_opps.c \
 	utils/sort_utils.c \
-#tu captes la syntaxe pour les fonctions dans un fichier pour que le nakefile les retrouve
 
-SRC_BONUS =
+SRC_BONUS =	checker.c \
 
 CC = cc
 
@@ -28,13 +24,10 @@ NAME = push_swap
 NAME_BONUS = checker
 
 OBJDIR = build
-# nom du dossier ou je veux mettre mes .o et .d crees pour fair eplus propre #
 
 OBJ = $(patsubst %.c,$(OBJDIR)/%.o,$(SRC))
-# transforme ta liste de .c en liste de .o, mais en les mettant dans build, patsubst ca permet de substituer par pattern genre $(patsubst <motif>, <remplacement>, <liste>) #
 
 OBJ_BONUS = $(patsubst %.c,$(OBJDIR)/%.o,$(SRC) $(SRC_BONUS))
-#ici a voir si on garde que les src_bonus ou quon met les deux
 
 DEP = $(OBJ:.o=.d)
 DEP_BONUS = $(OBJ_BONUS:.o=.d)

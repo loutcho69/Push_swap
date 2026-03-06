@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:56:39 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 16:48:08 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/06 22:20:56 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	has_duplicate(t_list *stack, int value)
 	t_list	*head;
 	t_list	*cur;
 
-	if (stack == NULL) //je laisse cette condition au cas ou mais je suis pas sur quil faille garder vu que liste circulaire
+	if (stack == NULL)
 		return (1);
 	head = stack;
 	cur = head;
@@ -60,8 +60,6 @@ int	is_token_in_int_range(const char *s)
 	return (1);
 }
 
-
-//idk if we need to check if there are zeros before our ints
 int	is_token_int(const char *s)
 {
 	int	i;

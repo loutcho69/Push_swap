@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:20:28 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/05 17:13:16 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/06 22:19:34 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,9 @@ size_t	stack_len(t_list *stack)
 	}
 	return (len);
 }
-// ici possibilite de faire le disorder en une seule fonction en utilisant ->next pour comparer
 
 static void	count_mistakes_and_pairs(float *mistakes,
-float *total_pairs, size_t len, t_list *stack) //jai mis le i directement la dedans au lieu de lextraire d la fonction disorder
+	float *total_pairs, size_t len, t_list *stack)
 {
 	size_t	i;
 	size_t	j;
@@ -79,7 +78,7 @@ float	disorder(t_list *stack)
 		return (0.0f);
 	total_pairs = 0;
 	mistakes = 0;
-	len = stack_len(stack); //jai modifie le len pour fit a liste chainee circlaire double
+	len = stack_len(stack);
 	if (len < 2)
 		return (0.0f);
 	count_mistakes_and_pairs(&mistakes, &total_pairs, len, stack);
