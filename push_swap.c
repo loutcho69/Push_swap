@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 02:29:01 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 03:11:04 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ static void    medium_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 {
     size_t i;
 
-    data->chunk_size = my_sqrt(data->len_stack);
-    data->chunk_end = data->chunk_size;
-    data->chunk_start = 0;
-    data->chunk_count = (data->len_stack / data->chunk_size) + 1;
+    init_chunk_value(data);
     while(data->chunk_count > 0)
     {
         i = data->chunk_size;
@@ -74,26 +71,26 @@ static void    complex_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 {
     size_t max_bit;
     size_t  bit;
-    size_t  len1;
+    size_t  len;
     
     max_bit = get_max_bit(data->len_stack);
     bit = 0;
     while(bit < max_bit)
     {
-        len1 = data->len_stack;
-        while (len1 > 0)
+        len = data->len_stack;
+        while (len > 0)
         {
             if((*stack_a)->index & (1 << bit))
                 rotate_a(stack_a);
             else
                 push_b(stack_b, stack_a);
-            len1--;
+            len--;
         }
-        len1 = data->len_stack;
-        while (len1 > 0)
+        len = data->len_stack;
+        while (len > 0)
         {
             push_a(stack_a, stack_b);
-            len1--;
+            len--;
         } 
         bit++;
     }    

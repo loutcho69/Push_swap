@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:55:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 02:59:33 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 03:24:29 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void    swap_a(t_list **stack_a, t_data *data)
     //Do nothing if there is only one or no elements).
     int tmp;
     
-    if(!(*stack_a)->prev || !(*stack_a)->next)// ici modif
-        return;
+    // if(!(*stack_a)->prev || !(*stack_a)->next)
+    //     return;
     tmp = (*stack_a)->next->index;
     (*stack_a)->next->index = (*stack_a)->index;
     (*stack_a)->index = tmp;
@@ -33,8 +33,8 @@ void    swap_b(t_list **stack_b, t_data *data)
     //Do nothing if there is only one or no elements).
     int tmp;
     
-    if(!(*stack_b)->prev || !(*stack_b)->next)
-        return;
+    // if(!(*stack_b)->prev || !(*stack_b)->next)
+    //     return;
     tmp = (*stack_b)->next->index;
     (*stack_b)->next->index =(*stack_b)->index;
     (*stack_b)->index = tmp;
@@ -46,13 +46,14 @@ void    swap_b(t_list **stack_b, t_data *data)
 void    swap_ab(t_list **stack_a, t_list **stack_b, t_data *data)
 {
     // ss : sa and sb at the same time.
-    swap_a(stack_a, data);
-    swap_b(stack_b, data);
+    t_data tmp;
+    tmp = *data;
+    
+    swap_a(stack_a, &tmp);
+    swap_b(stack_b, &tmp);
     write(1,"ss\n",3);
     data->ss_count += 1;
-    data->sa_count -= 1;
-    data->sb_count -= 1;
-    data->opps_count -= 1;
+    data->opps_count += 1;
 }
 
 void    push_a(t_list   **stack_a, t_list **stack_b, t_data *data)
@@ -61,7 +62,7 @@ void    push_a(t_list   **stack_a, t_list **stack_b, t_data *data)
     // Do nothing if b is empty.
     t_list *node;
     
-    if (!(*stack_b) || !stack_b)
+    if (!stack_b || !(*stack_b))
         return;
     node = (*stack_b);
     if (node->next == node)
@@ -84,7 +85,7 @@ void    push_b(t_list   **stack_b, t_list **stack_a, t_data *data)
     // Do nothing if a is empty.
     t_list *node;
     
-    if (!(*stack_a) || !stack_a)
+    if (!stack_a || !(*stack_a))
         return;
     node = (*stack_a);
     if (node->next == node)
@@ -121,13 +122,14 @@ void    rotate_b(t_list **stack_b, t_data *data)
 void    rotate_ab(t_list **stack_a, t_list **stack_b, t_data *data)
 {
     // rr : ra and rb at the same time.
-    rotate_a(stack_a, data);
-    rotate_b(stack_b, data);
+    t_data tmp;
+    tmp = *data;
+    
+    rotate_a(stack_a, &tmp);
+    rotate_b(stack_b, &tmp);
     write(1,"rr\n",3);
     data->rr_count += 1;
-    data->ra_count -= 1;
-    data->rb_count -= 1;
-    data->opps_count -= 1;
+    data->opps_count += 1;
 }
 void    rev_rotate_a(t_list **stack_a, t_data *data)
 {
@@ -148,11 +150,12 @@ void    rev_rotate_b(t_list **stack_b, t_data *data)
 void    rev_rotate_ab(t_list **stack_a, t_list **stack_b, t_data *data)
 {
    // rrr : rra and rrb at the same time.
-    rev_rotate_a(stack_a, data);
-    rev_rotate_b(stack_b, data);
+    t_data tmp;
+    tmp = *data;
+    
+    rev_rotate_a(stack_a, &tmp);
+    rev_rotate_b(stack_b, &tmp);
     write(1,"rrr\n",4);
     data->rrr_count += 1;
-    data->opps_count -= 1;
-    data->rra_count -= 1;
-    data->rrb_count -= 1;
+    data->opps_count += 1;
 }
