@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 03:10:01 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 03:38:13 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void init_values_data(t_list **stack, t_data *data)
 {
-    data->len_stack = count_node(stack);
+    data->len_stack = count_node(*stack);
     data->opps_count = 0;
     data->sa_count = 0;
     data->sb_count = 0;

@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 03:11:04 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 03:43:34 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@ static void simple_sort(t_list **stack_a, t_list **stack_b, t_data *data)
     
     min = 0;
     if (data->len_stack == 2)
-        simple_sort_two(stack_a);
+        simple_sort_two(stack_a, data);
     else if (data->len_stack == 3)
-        simple_sort_three(stack_a);
+        simple_sort_three(stack_a, data);
     else if (data->len_stack == 5)
-        simple_sort_five(stack_a, stack_b);
+        simple_sort_five(stack_a, stack_b, data);
     else
     {
         while(min < data->len_stack)
         {
             while((*stack_a)->index != min)
-                rotate_opti(stack_a, 'a', min,(min +1));
-            push_b(stack_b, stack_a);
+                rotate_opti(stack_a, 'a', min,(min +1), data);
+            push_b(stack_b, stack_a, data);
             min++;
         }
          while(min > 0)
          {
-             push_a(stack_a, stack_b);
+             push_a(stack_a, stack_b, data);
             min--;
         } 
     }
@@ -55,17 +55,17 @@ static void    medium_sort(t_list **stack_a, t_list **stack_b, t_data *data)
         {
             if((*stack_a)->index >= data->chunk_start && (*stack_a)->index < data->chunk_end)
             {
-                push_b(stack_b, stack_a);
+                push_b(stack_b, stack_a, data);
                 i--;
             }
             else
-                rotate_opti(stack_a, 'a',data->chunk_start,data->chunk_end);
+                rotate_opti(stack_a, 'a',data->chunk_start ,data->chunk_end ,data);
         }
         data->chunk_start = data->chunk_end;
         data->chunk_end = data->chunk_end + data->chunk_size;
         data->chunk_count--;
     }
-    push_opti(stack_a, stack_b, data->len_stack);
+    push_opti(stack_a, stack_b, data);
 }
 static void    complex_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 {
@@ -81,15 +81,15 @@ static void    complex_sort(t_list **stack_a, t_list **stack_b, t_data *data)
         while (len > 0)
         {
             if((*stack_a)->index & (1 << bit))
-                rotate_a(stack_a);
+                rotate_a(stack_a, data);
             else
-                push_b(stack_b, stack_a);
+                push_b(stack_b, stack_a, data);
             len--;
         }
         len = data->len_stack;
         while (len > 0)
         {
-            push_a(stack_a, stack_b);
+            push_a(stack_a, stack_b, data);
             len--;
         } 
         bit++;
@@ -119,16 +119,17 @@ int main()
     // ft_lstadd_front(&stack_a, ft_lstnew(-4));
     // ft_lstadd_front(&stack_a, ft_lstnew(-4555));
 
-    data.len_stack = count_node(stack_a);
+    init_values_data(&stack_a,&data);
 
-    printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value, stack_a->next->next->value);
+    // printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value, stack_a->next->next->value);
     index_sort(&stack_a,data.len_stack);
+    // printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value, stack_a->next->next->value);
+    // printf("stack_a: %zu %zu %zu\n", stack_a->index, stack_a->next->index, stack_a->next->next->index);
+    medium_sort(&stack_a, &stack_b, &data);
     printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value, stack_a->next->next->value);
     printf("stack_a: %zu %zu %zu\n", stack_a->index, stack_a->next->index, stack_a->next->next->index);
-    simple_sort(&stack_a, &stack_b, &data);
-    printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value, stack_a->next->next->value);
-    printf("stack_a: %zu %zu %zu\n", stack_a->index, stack_a->next->index, stack_a->next->next->index);
-    
+    printf("Count opps : %zu\n", data.opps_count);
+
     ft_lstclear(&stack_a, len);
     
     return 0;

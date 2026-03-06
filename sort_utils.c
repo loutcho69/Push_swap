@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:36:39 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 02:14:49 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 03:34:13 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,45 +61,45 @@ static bool	rotate_check(t_list *stack, size_t target_min, size_t target_max)
 	else
 		return (false);
 }
-void	push_opti(t_list **stack_a, t_list **stack_b, size_t len)
+void	push_opti(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	size_t	index;
 
-	index = len -1;
+	index = data->len_stack -1;
 	while ((*stack_b))
 	{
 		if (rotate_check((*stack_b), index, (index + 1)))
 		{
 			while ((*stack_b)->index != index)
-				rotate_b(stack_b);
+				rotate_b(stack_b, data);
 		}
 		else
 			while ((*stack_b)->index != index)
-				rev_rotate_b(stack_b);
-		push_a(stack_a, stack_b);
+				rev_rotate_b(stack_b, data);
+		push_a(stack_a, stack_b, data);
 		index--;
 	}
 }
 void	rotate_opti(t_list **stack, char c, size_t target_min,
-		size_t target_max)
+		size_t target_max, t_data *data)
 {
 	if (c == 'a')
     {
         if (rotate_check((*stack), target_min, target_max))
-            rotate_a(stack);
+            rotate_a(stack, data);
         else
-            rev_rotate_a(stack);
+            rev_rotate_a(stack, data);
     }
     if (c == 'b')
     {
         if (rotate_check((*stack), target_min, target_max))
-            rotate_b(stack);
+            rotate_b(stack, data);
         else
-            rev_rotate_b(stack);
+            rev_rotate_b(stack, data);
     }
 }
 
-void	simple_sort_three(t_list **stack_a)
+void	simple_sort_three(t_list **stack_a, t_data *data)
 {
 	size_t	a;
 	size_t	b;
@@ -111,31 +111,31 @@ void	simple_sort_three(t_list **stack_a)
 	if (a < b && b < c)
     	return ;
 	if (a > b && b < c && a < c)
-		swap_a(stack_a);
+		swap_a(stack_a, data);
 	else if (a > b && b > c)
 	{
-		swap_a(stack_a);
-		rev_rotate_a(stack_a);
+		swap_a(stack_a, data);
+		rev_rotate_a(stack_a, data);
 	}
 	else if (a > b && b < c && a > c)
-		rotate_a(stack_a);
+		rotate_a(stack_a, data);
 	else if (a < b && b > c && a < c)
 	{
-		swap_a(stack_a);
-		rotate_a(stack_a);
+		swap_a(stack_a, data);
+		rotate_a(stack_a, data);
 	}
 	else if (a < b && b > c && a > c)
-		rev_rotate_a(stack_a);
+		rev_rotate_a(stack_a, data);
 }
-void	simple_sort_two(t_list **stack_a)
+void	simple_sort_two(t_list **stack_a, t_data *data)
 {
 	if((*stack_a)->index == 0)
 		return;
 	else
-		swap_a(stack_a);
+		swap_a(stack_a, data);
 }
 
-void	simple_sort_five(t_list **stack_a, t_list **stack_b)
+void	simple_sort_five(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	size_t	min;
 
@@ -143,14 +143,14 @@ void	simple_sort_five(t_list **stack_a, t_list **stack_b)
 	while(min < 2)
         {
             while((*stack_a)->index != min)
-                rotate_opti(stack_a, 'a', min,(min +1));
-            push_b(stack_b, stack_a);
+                rotate_opti(stack_a, 'a', min,(min +1), data);
+            push_b(stack_b, stack_a, data);
             min++;
         }
-	simple_sort_three(stack_a);
+	simple_sort_three(stack_a, data);
 	while(min != 0)
         {
-            push_a(stack_a, stack_b);
+            push_a(stack_a, stack_b, data);
             min--;
         }
 }
