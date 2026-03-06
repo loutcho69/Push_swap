@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:32:07 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 04:53:48 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,16 +110,18 @@ int	main(void)
 
 	init_values_data(&stack_a, &data);
 
-	// printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value,stack_a->next->next->value);
-		index_sort(&stack_a, data.len_stack);
-		// printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value,stack_a->next->next->value);
-		// printf("stack_a: %zu %zu %zu\n", stack_a->index,stack_a->next->index,stack_a->next->next->index);
-		complex_sort(&stack_a, &stack_b, &data);
-		printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value,stack_a->next->next->value);
-		printf("stack_a: %zu %zu %zu\n", stack_a->index, stack_a->next->index,stack_a->next->next->index);
-		printf("Count opps : %zu\n", data.opps_count);
+	// printf("stack_a: %d %d %d\n", stack_a->value,stack_a->next->value,stack_a->next->next->value);
+	index_sort(&stack_a, data.len_stack);
+	// printf("stack_a: %d %d %d\n", stack_a->value,stack_a->next->value,stack_a->next->next->value);
+	// printf("stack_a: %zu %zu %zu\n",stack_a->index,stack_a->next->index,stack_a->next->next->index);
+	complex_sort(&stack_a, &stack_b, &data);
+	printf("stack_a: %d %d %d\n", stack_a->value, stack_a->next->value,
+		stack_a->next->next->value);
+	printf("stack_a: %zu %zu %zu\n", stack_a->index, stack_a->next->index,
+		stack_a->next->next->index);
+	printf("Count opps : %zu\n", data.opps_count);
 
-		ft_lstclear(&stack_a, len);
+	ft_lstclear(&stack_a, len);
 
-		return (0);
+	return (0);
 }

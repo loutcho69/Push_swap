@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing copy.c                                     :+:      :+:    :+:   */
+/*   push_opps.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:49:44 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 04:53:16 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	push_a(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	t_list	*node;
 
-	// pa : push a- take the first element at the top of b and put it at the top of a.
-	// Do nothing if b is empty.
 	if (!stack_b || !(*stack_b))
 		return ;
 	node = (*stack_b);
@@ -39,8 +37,6 @@ void	push_b(t_list **stack_b, t_list **stack_a, t_data *data)
 {
 	t_list	*node;
 
-	// pb : push b- take the first element at the top of a and put it at the top of b.
-	// Do nothing if a is empty.
 	if (!stack_a || !(*stack_a))
 		return ;
 	node = (*stack_a);
