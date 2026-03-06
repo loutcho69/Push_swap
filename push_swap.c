@@ -6,13 +6,11 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 02:13:43 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 02:29:01 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 // algo simple:
 // chercher le min et push dans b et ainsi de suite puis repush dans a
