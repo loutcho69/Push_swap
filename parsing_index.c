@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 02:38:28 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/01 01:32:51 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 04:07:25 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 #include "push_swap.h"
 
-void    index_sort(t_list **stack, size_t len)
+void	index_sort(t_list **stack, size_t len)
 {
 	size_t	i;
 	size_t	len1;
 	size_t	len2;
-	int tmp;
+	int		tmp;
 
 	len1 = len;
 	while (len1 > 0)
@@ -29,7 +29,7 @@ void    index_sort(t_list **stack, size_t len)
 		len2 = len;
 		while (len2 > 0)
 		{
-			if(tmp > (*stack)->next->value)
+			if (tmp > (*stack)->next->value)
 				i++;
 			len2--;
 			(*stack) = (*stack)->next;

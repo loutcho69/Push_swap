@@ -6,17 +6,17 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 22:50:43 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/03 21:48:15 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 04:07:22 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 // tous les utils pour la manipulation de node ici
 int	count_node(t_list *stack)
 {
 	size_t	count;
-	int tmp;
-	
+	int		tmp;
 
 	tmp = stack->value;
 	count = 1;
@@ -26,7 +26,7 @@ int	count_node(t_list *stack)
 		++count;
 		stack = stack->next;
 	}
-    // ici c est return count ou count +1 jsp??
+	// ici c est return count ou count +1 jsp??
 	return (count);
 }
 void	ft_lstadd_front(t_list **stack, t_list *new_node)

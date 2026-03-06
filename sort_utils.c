@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:36:39 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 03:34:13 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 04:16:45 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	push_opti(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	size_t	index;
 
-	index = data->len_stack -1;
+	index = data->len_stack - 1;
 	while ((*stack_b))
 	{
 		if (rotate_check((*stack_b), index, (index + 1)))
@@ -80,23 +80,22 @@ void	push_opti(t_list **stack_a, t_list **stack_b, t_data *data)
 		index--;
 	}
 }
-void	rotate_opti(t_list **stack, char c, size_t target_min,
-		size_t target_max, t_data *data)
+void	rotate_opti(t_list **stack, char c, t_data *data)
 {
 	if (c == 'a')
-    {
-        if (rotate_check((*stack), target_min, target_max))
-            rotate_a(stack, data);
-        else
-            rev_rotate_a(stack, data);
-    }
-    if (c == 'b')
-    {
-        if (rotate_check((*stack), target_min, target_max))
-            rotate_b(stack, data);
-        else
-            rev_rotate_b(stack, data);
-    }
+	{
+		if (rotate_check((*stack), data->target_min, data->target_max))
+			rotate_a(stack, data);
+		else
+			rev_rotate_a(stack, data);
+	}
+	if (c == 'b')
+	{
+		if (rotate_check((*stack), data->target_min, data->target_max))
+			rotate_b(stack, data);
+		else
+			rev_rotate_b(stack, data);
+	}
 }
 
 void	simple_sort_three(t_list **stack_a, t_data *data)
@@ -109,7 +108,7 @@ void	simple_sort_three(t_list **stack_a, t_data *data)
 	b = (*stack_a)->next->index;
 	c = (*stack_a)->next->next->index;
 	if (a < b && b < c)
-    	return ;
+		return ;
 	if (a > b && b < c && a < c)
 		swap_a(stack_a, data);
 	else if (a > b && b > c)
@@ -129,29 +128,27 @@ void	simple_sort_three(t_list **stack_a, t_data *data)
 }
 void	simple_sort_two(t_list **stack_a, t_data *data)
 {
-	if((*stack_a)->index == 0)
-		return;
+	if ((*stack_a)->index == 0)
+		return ;
 	else
 		swap_a(stack_a, data);
 }
 
 void	simple_sort_five(t_list **stack_a, t_list **stack_b, t_data *data)
 {
-	size_t	min;
-
-	min = 0;
-	while(min < 2)
-        {
-            while((*stack_a)->index != min)
-                rotate_opti(stack_a, 'a', min,(min +1), data);
-            push_b(stack_b, stack_a, data);
-            min++;
-        }
+	while (data->target_min < 2)
+	{
+		while ((*stack_a)->index != data->target_min)
+			rotate_opti(stack_a, 'a', data);
+		push_b(stack_b, stack_a, data);
+		data->target_min++;
+		data->target_max++;
+	}
 	simple_sort_three(stack_a, data);
-	while(min != 0)
-        {
-            push_a(stack_a, stack_b, data);
-            min--;
-        }
+	while (data->target_min != 0)
+	{
+		push_a(stack_a, stack_b, data);
+		data->target_min--;
+	}
 }
 // ici faire que les fonctions soit modulaires
