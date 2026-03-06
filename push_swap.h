@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/05 20:58:34 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/05 22:22:10 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ size_t				my_sqrt(size_t n);
 bool	r_or_rv(size_t target, size_t len);
 void    rotate_opti(t_list **stack, char c, size_t target_min, size_t target_max);
 void	push_opti(t_list **stack_a, t_list **stack_b, size_t len);
-void	simple_sort_three(t_list **stack_a, t_list **stack_b);
-void	simple_sort_two(t_list **stack_a, t_list **stack_b);
-
+void	simple_sort_three(t_list **stack_a);
+void	simple_sort_two(t_list **stack_a);
+void	simple_sort_five(t_list **stack_a, t_list **stack_b);
 
 #endif
 

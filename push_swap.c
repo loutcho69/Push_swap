@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/05 21:12:38 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 02:13:43 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ static void simple_sort(t_list **stack_a, t_list **stack_b, t_data *data)
     
     min = 0;
     if (data->len_stack == 2)
-        simple_sort_two(stack_a,stack_b);
-    if (data->len_stack == 3)
-        simple_sort_three(stack_a, stack_b);
+        simple_sort_two(stack_a);
+    else if (data->len_stack == 3)
+        simple_sort_three(stack_a);
+    else if (data->len_stack == 5)
+        simple_sort_five(stack_a, stack_b);
     else
     {
         while(min < data->len_stack)
@@ -78,7 +80,7 @@ static void    complex_sort(t_list **stack_a, t_list **stack_b, t_data *data)
     
     max_bit = get_max_bit(data->len_stack);
     bit = 0;
-    while(bit <= max_bit)
+    while(bit < max_bit)
     {
         len1 = data->len_stack;
         while (len1 > 0)
@@ -111,8 +113,8 @@ int main()
     stack_a = ft_lstnew(1);
     ft_lstadd_front(&stack_a, ft_lstnew(2));
     ft_lstadd_front(&stack_a, ft_lstnew(0));
-    // ft_lstadd_front(&stack_a, ft_lstnew(43));
-    // ft_lstadd_front(&stack_a, ft_lstnew(12));
+    ft_lstadd_front(&stack_a, ft_lstnew(43));
+    ft_lstadd_front(&stack_a, ft_lstnew(12));
     // ft_lstadd_front(&stack_a, ft_lstnew(-3));
     // ft_lstadd_front(&stack_a, ft_lstnew(92378));
     // ft_lstadd_front(&stack_a, ft_lstnew(-333));

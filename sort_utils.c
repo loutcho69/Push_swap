@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:36:39 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/05 22:05:35 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/06 02:14:49 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,7 @@ size_t	my_sqrt(size_t n)
 		i++;
 	return (i - 1);
 }
-// bool	r_or_rv(size_t target, size_t len)
-// {
-// 	size_t	i;
 
-// 	len >>= 1;
-// 	i = 0;
-// 	while (target != i)
-// 		i++;
-// 	if (i < len)
-// 		return (true);
-// 	else
-// 		return (false);
-// }
 static bool	rotate_check(t_list *stack, size_t target_min, size_t target_max)
 {
 	size_t	i;
@@ -111,32 +99,59 @@ void	rotate_opti(t_list **stack, char c, size_t target_min,
     }
 }
 
-void	simple_sort_three(t_list **stack_a, t_list **stack_b)
+void	simple_sort_three(t_list **stack_a)
 {
-	if ((*stack_a)->index == 0 && (*stack_a)->next->index == 1)
-		return;
-	else if ((*stack_a)->index == 0 && (*stack_a)->next->index == 2)
+	size_t	a;
+	size_t	b;
+	size_t	c;
+
+	a = (*stack_a)->index;
+	b = (*stack_a)->next->index;
+	c = (*stack_a)->next->next->index;
+	if (a < b && b < c)
+    	return ;
+	if (a > b && b < c && a < c)
+		swap_a(stack_a);
+	else if (a > b && b > c)
+	{
+		swap_a(stack_a);
+		rev_rotate_a(stack_a);
+	}
+	else if (a > b && b < c && a > c)
+		rotate_a(stack_a);
+	else if (a < b && b > c && a < c)
 	{
 		swap_a(stack_a);
 		rotate_a(stack_a);
 	}
-	else if ((*stack_a)->index == 1 && (*stack_a)->next->index == 0)
-		swap_a(stack_a);
-	else if ((*stack_a)->index == 1 && (*stack_a)->next->index == 2)
+	else if (a < b && b > c && a > c)
 		rev_rotate_a(stack_a);
-	else if ((*stack_a)->index == 2 && (*stack_a)->next->index == 0)
-		rotate_a(stack_a);
-	else if ((*stack_a)->index == 2 && (*stack_a)->next->index == 1)
-	{
-		swap_a(stack_a);
-		rev_rotate_a(stack_a);
-	}	
 }
-void	simple_sort_two(t_list **stack_a, t_list **stack_b)
+void	simple_sort_two(t_list **stack_a)
 {
 	if((*stack_a)->index == 0)
 		return;
 	else
 		swap_a(stack_a);
+}
+
+void	simple_sort_five(t_list **stack_a, t_list **stack_b)
+{
+	size_t	min;
+
+	min = 0;
+	while(min < 2)
+        {
+            while((*stack_a)->index != min)
+                rotate_opti(stack_a, 'a', min,(min +1));
+            push_b(stack_b, stack_a);
+            min++;
+        }
+	simple_sort_three(stack_a);
+	while(min != 0)
+        {
+            push_a(stack_a, stack_b);
+            min--;
+        }
 }
 // ici faire que les fonctions soit modulaires
