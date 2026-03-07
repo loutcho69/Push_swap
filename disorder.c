@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   discord.c                                          :+:      :+:    :+:   */
+/*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:20:28 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/06 23:04:32 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/07 23:03:36 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,6 @@ static int	get_nth_content(t_list *stack, size_t i)
 			return (0);
 	}
 	return (stack->value);
-}
-
-size_t	stack_len(t_list *stack)
-{
-	size_t	len;
-	t_list	*head;
-
-	if (!stack)
-		return (0);
-	head = stack;
-	len = 1;
-	while (stack->next && stack->next != head)
-	{
-		stack = stack->next;
-		len++;
-	}
-	return (len);
 }
 
 static void	count_mistakes_and_pairs(float *mistakes,

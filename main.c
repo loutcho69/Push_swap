@@ -6,20 +6,15 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 22:52:50 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/07 23:05:47 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//les branchements avec les algos de tri
-// vont se faire ici dans le flag dispatcher
-//je te laisse faire ici
-
 static void	flag_dispatcher(t_list **stack_a, t_list **stack_b,
 	t_opts *opts, t_data *data)
 {
-	// if (opts->bench)
 	if (opts->strategy == STRAT_SIMPLE)
 		simple_sort(stack_a, stack_b, data);
 	else if (opts->strategy == STRAT_MEDIUM)
