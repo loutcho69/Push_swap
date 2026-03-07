@@ -6,11 +6,11 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 18:53:18 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 20:15:34 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 20:45:35 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//tmp to delete once merged
+//tmp, to delete once merged
 
 #include "../push_swap.h"
 #include "push_swap_bonus.h"

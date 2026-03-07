@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:44:42 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 20:43:25 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 20:45:14 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	index_sort(t_list **stack, size_t len);
 
 /* bonus parser wrapper */
 // int	parse_input_bonus(int argc, char **argv, t_list **stack);
-int	parse_input(int argc, char **argv, t_list **stack,
-	t_opts *opts, t_data *data);
+int		parse_input(int argc, char **argv, t_list **stack,
+			t_opts *opts, t_data *data);
 
 #endif

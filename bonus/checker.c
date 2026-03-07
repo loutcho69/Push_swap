@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:29:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 20:42:09 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 20:47:45 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	read_stdout(t_list **stack_a, t_list **stack_b, t_data *data)
 	return (1);
 }
 
-static int	is_sorted(t_list	*stack)
+static int	is_sorted(t_list *stack)
 {
 	size_t	len;
 	size_t	i;
@@ -103,9 +103,9 @@ int	main(int argc, char **argv)
 	if (!read_stdout(&stack_a, &stack_b, &data))
 		return (1);
 	if (is_sorted(stack_a) && (!stack_b || stack_len(stack_b) == 0))
-		write(2, "OK\n", 3);
+		write(1, "OK\n", 3);
 	else
-		write(2, "KO\n", 3);
+		write(1, "KO\n", 3);
 	stack_clear(&stack_a);
 	stack_clear(&stack_b);
 	return (0);
