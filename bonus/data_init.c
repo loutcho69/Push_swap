@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 18:53:18 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 20:45:35 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 20:50:21 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 
 void	data_init(t_data *data)
 {
-	if (!data)
-		return ;
 	data->len_stack = 0;
-	data->disorder = 0.0f;
+	data->disorder = 0.0;
 	data->target_min = 0;
 	data->target_max = 0;
 	data->chunk_start = 0;
