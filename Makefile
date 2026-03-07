@@ -14,6 +14,8 @@ SRC = parser.c \
 	utils/sort_utils.c \
 
 SRC_BONUS =	checker.c \
+	GNL/get_next_line_utils.c \
+	GNL/get_next_line.c \
 
 CC = cc
 

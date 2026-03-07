@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/06 22:33:39 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 18:06:49 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ typedef struct s_opts
 	int			strat_forced;
 	t_strategy	strategy;
 }	t_opts;
+
+typedef struct s_data //to get rid of just here to silence an error message bcs i dont have t_data right now its on main
+{
+	size_t index;
+}	t_data;
 
 /* node / stack utils */
 t_list		*node_new(int value);
