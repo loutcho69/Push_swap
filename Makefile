@@ -14,7 +14,7 @@ SRC = parser.c \
 SRC_BONUS =	bonus/checker.c \
 	bonus/GNL/get_next_line_utils.c \
 	bonus/GNL/get_next_line.c \
-	bonus/opps/opps.c \
+	bonus/opps/opps_bonus.c \
 	bonus/parser_bonus.c \
 	bonus/data_init.c \
 	bonus/parsing_index.c

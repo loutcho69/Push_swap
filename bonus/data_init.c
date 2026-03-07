@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 18:53:18 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 19:10:00 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 19:11:54 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,6 @@
 
 #include "../push_swap.h"
 #include "push_swap_bonus.h"
-
-void	init_values_data(t_list **stack, t_data *data)
-{
-	data->len_stack = stack_len(*stack);
-	data->opps_count = 0;
-	data->sa_count = 0;
-	data->sb_count = 0;
-	data->ss_count = 0;
-	data->pa_count = 0;
-	data->pb_count = 0;
-	data->ra_count = 0;
-	data->rb_count = 0;
-	data->rr_count = 0;
-	data->rra_count = 0;
-	data->rrb_count = 0;
-	data->rrr_count = 0;
-}
 
 /* minimal initializer expected by parser.c / parser_bonus.c */
 void	data_init(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:29:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 19:10:00 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 19:13:47 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 //pour lutilisation il faut soit rentrer les operations dans lordre dans le terminal soit
 // pipe le resultat de notre push swap dans le checker genre
 // ./push_swap 3 2 1 5 4 | ./checker 3 2 1 5 4
+// ctrl d pour arreter, pas ctrl c si on rentre juste 
 
 static int	parse_opps(char *opps, t_list **stack_a, t_list **stack_b, t_data *data)
 {
