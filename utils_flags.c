@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 14:59:27 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 23:36:56 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 00:15:51 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	parse_one_flag(const char *s, t_data *data)
 	if (ft_strcmp(s, "--bench") == 0)
 	{
 		data->bench = 1;
+		printf("%d", data->bench);
 		return (1);
 	}
 	if (ft_strcmp(s, "--simple") == 0)

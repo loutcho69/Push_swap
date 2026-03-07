@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 23:59:49 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 00:14:43 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,21 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 	t_data	data;
 	float	d;
+	size_t bench_tmp;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	init_values_data(&stack_a, &data);
 	parse_input(argc, argv, &stack_a, &data);
+	bench_tmp = data.bench;
+	printf("%zu", bench_tmp);
 	data.len_stack = count_node(stack_a);
 	if (!stack_a)
 	return (0);
 	d = disorder(stack_a);
 	data.disorder = d;
 	flag_dispatcher(&stack_a, &stack_b, &data);
-	if (data.bench)
+	if (bench_tmp)
 		print_bench(&data);
 	ft_lstclear(&stack_a, data.len_stack);
 	stack_b = NULL;

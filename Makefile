@@ -9,7 +9,6 @@ SRC = bench.c \
 	opps_swap.c \
 	parser.c \
 	parsing_index.c \
-	parsing.c \
 	push_swap.c \
 	simple_sort.c \
 	split.c \
