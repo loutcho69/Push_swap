@@ -6,12 +6,12 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:20:28 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 23:03:36 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/07 23:07:54 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+// SIMPLIFICATION POSSIBLE
 static int	get_nth_content(t_list *stack, size_t i)
 {
 	size_t	k;

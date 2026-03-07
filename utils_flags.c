@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 14:59:27 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/06 23:01:32 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/07 23:11:02 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@ int	is_flag(const char *s)
 	return (s && s[0] == '-' && s[1] == '-');
 }
 
-void	opts_init(t_opts *o)
-{
-	o->bench = 0;
-	o->strat_forced = 0;
-	o->strategy = STRAT_ADAPTIVE;
-}
 
 int	set_strategy(t_opts *o, t_strategy s)
 {

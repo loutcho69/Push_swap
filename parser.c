@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 23:05:10 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/07 23:13:26 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,19 @@ static int	parse_one_arg(char *arg, t_list **stack)
 	return (1);
 }
 
-int	parse_input(int argc, char **argv, t_list **stack,
-	t_opts *opts, t_data *data)
+int	parse_input(int argc, char **argv, t_list **stack, t_data *data)
 {
 	int		i;
-	size_t	len;
 
-	if (argc <= 1 || !stack || !opts)
+	if (argc <= 1 || !stack)
 		return (0);
-	opts_init(opts);
 	data_init(data);
 	i = 1;
 	while (i < argc)
 	{
 		if (is_flag(argv[i]))
 		{
-			if (!parse_one_flag(argv[i], opts))
+			if (!parse_one_flag(argv[i], data))
 				return (parse_error(stack, NULL));
 		}
 		else if (!parse_one_arg(argv[i], stack))
@@ -75,9 +72,6 @@ int	parse_input(int argc, char **argv, t_list **stack,
 		i++;
 	}
 	if (*stack)
-	{
-		len = stack_len(*stack);
-		index_sort(stack, len);
-	}
+		index_sort(stack, data->len_stack);
 	return (0);
 }

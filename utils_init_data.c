@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_utils.c                                     :+:      :+:    :+:   */
+/*   utils_init_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:54:06 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/07 23:14:54 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ void	init_values_data(t_list **stack, t_data *data)
 	data->rra_count = 0;
 	data->rrb_count = 0;
 	data->rrr_count = 0;
+	data->bench = 0;
+	data->strat_forced = 0;
+	data->strategy = STRAT_ADAPTIVE;
 }
 void	init_chunk_value(t_data *data)
 {
