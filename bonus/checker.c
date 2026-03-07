@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:29:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 20:47:45 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 23:09:30 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,36 @@
 static int	parse_opps(char *opps, t_list **stack_a,
 	t_list **stack_b, t_data *data)
 {
-	if (!(ft_strcmp(opps, "sa\n")))
+	size_t	len;
+
+	if (!opps)
+		return (0);
+	len = ft_strlen(opps);
+	if (len && opps[len - 1] == '\n')
+		opps[len - 1] = '\0';
+	if (!(ft_strcmp(opps, "sa")))
 		swap_a(stack_a, data);
-	else if (!(ft_strcmp(opps, "sb\n")))
+	else if (!(ft_strcmp(opps, "sb")))
 		swap_b(stack_b, data);
-	else if (!(ft_strcmp(opps, "ss\n")))
+	else if (!(ft_strcmp(opps, "ss")))
 		swap_ab(stack_a, stack_b, data);
-	else if (!(ft_strcmp(opps, "pa\n")))
+	else if (!(ft_strcmp(opps, "pa")))
 		push_a(stack_a, stack_b, data);
-	else if (!(ft_strcmp(opps, "pb\n")))
+	else if (!(ft_strcmp(opps, "pb")))
 		push_b(stack_b, stack_a, data);
-	else if (!(ft_strcmp(opps, "ra\n")))
+	else if (!(ft_strcmp(opps, "ra")))
 		rotate_a(stack_a, data);
-	else if (!(ft_strcmp(opps, "rb\n")))
+	else if (!(ft_strcmp(opps, "rb")))
 		rotate_b(stack_b, data);
-	else if (!(ft_strcmp(opps, "rr\n")))
+	else if (!(ft_strcmp(opps, "rr")))
 		rotate_ab(stack_a, stack_b, data);
-	else if (!(ft_strcmp(opps, "rra\n")))
+	else if (!(ft_strcmp(opps, "rra")))
 		rev_rotate_a(stack_a, data);
-	else if (!(ft_strcmp(opps, "rrb\n")))
+	else if (!(ft_strcmp(opps, "rrb")))
 		rev_rotate_b(stack_b, data);
-	else if (!(ft_strcmp(opps, "rrr\n")))
+	else if (!(ft_strcmp(opps, "rrr")))
 		rev_rotate_ab(stack_a, stack_b, data);
-	else if (opps)
+	else if (opps && *opps)
 		return (0);
 	return (1);
 }

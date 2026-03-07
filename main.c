@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 19:10:00 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 23:20:59 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,26 @@ int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	t_opts	opts;
 	t_data	data;
 	float	d;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	parse_input(argc, argv, &stack_a, &opts, &data);
-	if (!stack_a)
+	if (!parse_input(argc, argv, &stack_a, &data))
+	{
+		write(2, "Error\n", 6);
 		return (0);
+	}
+	if (!stack_a)
+	{
+		write(2, "Error\n", 6);
+		return (0);
+	}
 	d = disorder(stack_a);
 	data.disorder = d;
-	flag_dispatcher(&stack_a, &stack_b, &opts, &data);
+	flag_dispatcher(&stack_a, &stack_b, &data);
 	if (opts.bench)
-		print_bench(&data, &opts);
+		print_bench(&opts);
 	stack_clear(&stack_a);
 	stack_clear(&stack_b);
 	return (0);
