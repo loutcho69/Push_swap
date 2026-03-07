@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 15:20:47 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 23:29:16 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 00:55:26 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ static char	*parse_complexity(t_data *data)
 			return ("O(nlogn)");
 	}
 }
+static char *data_strategy(t_data *data)
+{
+	if(data->strategy == STRAT_SIMPLE)
+		return("Simple");
+	else if (data->strategy == STRAT_MEDIUM)
+		return("Medium");
+	else if (data->strategy == STRAT_COMPLEX)
+		return("Complex");
+	else
+		return("Adaptive");
+}
 
 void	print_bench(t_data *data) // a print sur stderr
 {
@@ -37,7 +48,7 @@ void	print_bench(t_data *data) // a print sur stderr
 
 	disorder_percent = data->disorder * 100;
 	printf("[bench] disorder: %d\n", disorder_percent);
-	printf("[bench] strategy: %u / %s\n", data->strategy,
+	printf("[bench] strategy: %s / %s\n", data_strategy(data),
 		parse_complexity(data));
 	printf("[bench] total_ops: %zu\n", data->opps_count);
 	printf("[bench] sa: %zu, sb: %zu, ss: %zu, pa: %zu, pb: %zu\n", data->sa_count,
@@ -45,3 +56,4 @@ void	print_bench(t_data *data) // a print sur stderr
 	printf("[bench] ra: %zu8, rb: %zu, rr: %zu, rra: %zu, rrb: %zu, rrr: %zu\n",
 		data->ra_count, data->rb_count, data->rr_count, data->rra_count, data->rrb_count, data->rrr_count);
 }
+
