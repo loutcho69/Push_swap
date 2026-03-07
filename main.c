@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/06 23:28:16 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/07 22:52:50 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,15 @@ static void	flag_dispatcher(t_list **stack_a, t_list **stack_b,
 		medium_sort(stack_a, stack_b, data);
 	else if (opts->strategy == STRAT_COMPLEX)
         complex_sort(stack_a, stack_b, data);
-	// else if (opts->strategy == STRAT_ADAPTIVE)
+	else if (opts->strategy == STRAT_ADAPTIVE)
+	{
+		if (data->disorder < 0.2f)
+			simple_sort(stack_a, stack_b, data);
+		else if (data->disorder < 0.5f)
+			medium_sort(stack_a, stack_b, data);
+		else
+			complex_sort(stack_a, stack_b, data);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -45,6 +53,8 @@ int	main(int argc, char **argv)
 	d = disorder(stack_a);
 	data.disorder = d;
 	flag_dispatcher(&stack_a, &stack_b, &opts, &data);
+	if (opts.bench)
+		print_bench(&data, &opts);
 	stack_clear(&stack_a);
 	stack_clear(&stack_b);
 	return (0);
