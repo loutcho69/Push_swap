@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/07 23:13:26 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/07 23:18:45 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ static int	parse_one_arg(char *arg, t_list **stack)
 		value = ft_atoi(tokens[j]);
 		if (!has_duplicate(*stack, value))
 			return (parse_error(stack, tokens));
-		new_node = node_new(value);
+		new_node = ft_lstnew(value);
 		if (!new_node)
 			return (parse_error(stack, tokens));
-		ft_node_add_back(stack, new_node);
+		ft_lstadd_back(stack, new_node);
 		j++;
 	}
 	free_tokens(tokens);
@@ -58,7 +58,7 @@ int	parse_input(int argc, char **argv, t_list **stack, t_data *data)
 
 	if (argc <= 1 || !stack)
 		return (0);
-	data_init(data);
+	init_values_data(stack, data);
 	i = 1;
 	while (i < argc)
 	{
@@ -71,6 +71,7 @@ int	parse_input(int argc, char **argv, t_list **stack, t_data *data)
 			return (0);
 		i++;
 	}
+	init_values_data(stack, data);
 	if (*stack)
 		index_sort(stack, data->len_stack);
 	return (0);

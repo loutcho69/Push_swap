@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/07 23:14:52 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/07 23:29:35 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,6 @@ void				init_target(t_data *data);
 float		disorder(t_list *stack);
 
 /* bench / printing */
-int			print_bench(t_data *data);
+void			print_bench(t_data *data);
 
 #endif

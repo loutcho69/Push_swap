@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:20:28 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 23:07:54 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/07 23:19:33 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ float	disorder(t_list *stack)
 		return (0.0f);
 	total_pairs = 0;
 	mistakes = 0;
-	len = stack_len(stack);
+	len = count_node(stack);
 	if (len < 2)
 		return (0.0f);
 	count_mistakes_and_pairs(&mistakes, &total_pairs, len, stack);

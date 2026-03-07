@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 14:59:27 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 23:11:02 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/07 23:36:56 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,31 @@ int	is_flag(const char *s)
 }
 
 
-int	set_strategy(t_opts *o, t_strategy s)
+int	set_strategy(t_data *data, t_strategy s)
 {
-	if (o->strat_forced)
+	if (data->strat_forced)
 		return (0);
-	o->strategy = s;
-	o->strat_forced = 1;
+	data->strategy = s;
+	data->strat_forced = 1;
 	return (1);
 }
 
-int	parse_one_flag(const char *s, t_opts *o)
+int	parse_one_flag(const char *s, t_data *data)
 {
-	if (!s || !o)
+	if (!s || !data)
 		return (0);
 	if (ft_strcmp(s, "--bench") == 0)
 	{
-		o->bench = 1;
+		data->bench = 1;
 		return (1);
 	}
 	if (ft_strcmp(s, "--simple") == 0)
-		return (set_strategy(o, STRAT_SIMPLE));
+		return (set_strategy(data, STRAT_SIMPLE));
 	if (ft_strcmp(s, "--medium") == 0)
-		return (set_strategy(o, STRAT_MEDIUM));
+		return (set_strategy(data, STRAT_MEDIUM));
 	if (ft_strcmp(s, "--complex") == 0)
-		return (set_strategy(o, STRAT_COMPLEX));
+		return (set_strategy(data, STRAT_COMPLEX));
 	if (ft_strcmp(s, "--adaptive") == 0)
-		return (set_strategy(o, STRAT_ADAPTIVE));
+		return (set_strategy(data, STRAT_ADAPTIVE));
 	return (0);
 }

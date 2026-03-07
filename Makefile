@@ -1,17 +1,25 @@
 # verifier le relink a la fin qund on aura tout le makefile
 
-SRC = parser.c \
+SRC = bench.c \
 	disorder.c \
-	utils/nodes_utils.c \
-	utils/parser_flags_utils.c \
-	utils/parser_utils.c \
-	utils/parsing_index.c \
-	utils/split.c \
-	utils/split_utils.c \
-	utils/utils.c \
-	utils/parser_utils2.c \
 	main.c \
-	utils/sort_utils.c \
+	opps_push.c \
+	opps_rev.c \
+	opps_rot.c \
+	opps_swap.c \
+	parser.c \
+	parsing_index.c \
+	parsing.c \
+	push_swap.c \
+	simple_sort.c \
+	split.c \
+	utils_algo.c \
+	utils_flags.c \
+	utils_init_data.c \
+	utils_node.c \
+	utils_parsing.c \
+	utils_parsing2.c \
+	utils_str.c \
 
 SRC_BONUS =	checker.c \
 
