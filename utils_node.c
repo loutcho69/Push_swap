@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 22:50:43 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 22:45:09 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 00:00:29 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int	count_node(t_list *stack)
 {
 	size_t	count;
 	int		tmp;
-
+	if(!stack)
+		return(0);
 	tmp = stack->value;
 	count = 1;
 	stack = stack->next;
@@ -66,7 +67,7 @@ void	ft_lstclear(t_list **lst, int len)
 {
 	t_list	*tmp;
 
-	while (len > 0)
+	while (len > 1)
 	{
 		tmp = (*lst)->next;
 		free(*lst);
