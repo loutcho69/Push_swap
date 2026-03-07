@@ -6,12 +6,13 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 18:37:48 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 18:39:49 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 18:43:38 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //tmp opps.c to test
 #include "../push_swap_bonus.h"
+#include "push_swap.h"
 
 void	push_a(t_list **stack_a, t_list **stack_b, t_data *data)
 {

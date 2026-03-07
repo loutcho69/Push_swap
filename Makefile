@@ -5,17 +5,17 @@ SRC = parser.c \
 	utils/nodes_utils.c \
 	utils/parser_flags_utils.c \
 	utils/parser_utils.c \
-	utils/parsing_index.c \
 	utils/split.c \
 	utils/split_utils.c \
 	utils/utils.c \
 	utils/parser_utils2.c \
 	main.c \
-	utils/sort_utils.c \
 
-SRC_BONUS =	checker.c \
-	GNL/get_next_line_utils.c \
-	GNL/get_next_line.c \
+SRC_BONUS =	bonus/checker.c \
+	bonus/GNL/get_next_line_utils.c \
+	bonus/GNL/get_next_line.c \
+	bonus/opps/opps.c \
+	bonus/parser_bonus.c \
 
 CC = cc
 
