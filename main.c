@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 17:03:46 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 19:10:00 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	flag_dispatcher(t_list **stack_a, t_list **stack_b,
 {
 	size_t	len;
 
-	len = data->len;
+	len = data.len_stack;
 	if (opts->strategy == STRAT_SIMPLE)
 		simple_sort(stack_a, stack_b, len);
 	else if (opts->strategy == STRAT_MEDIUM)

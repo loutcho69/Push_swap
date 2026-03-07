@@ -6,13 +6,13 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:26:34 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 17:55:31 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 19:10:00 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap_bonus.h"
 
-size_t	ft_strlen(char *s)
+size_t	gnl_strlen(const char *s)
 {
 	size_t	i;
 
@@ -51,7 +51,7 @@ char	*ft_append(char *line, char *buf, size_t n)
 
 	if (!buf || n == 0)
 		return (line);
-	len = ft_strlen(line);
+	len = gnl_strlen(line);
 	new_line = malloc(len + n + 1);
 	if (!new_line)
 	{

@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 18:43:03 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 19:10:00 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ int			is_flag(const char *s);
 int			parse_one_flag(const char *s, t_opts *o);
 int			set_strategy(t_opts *o, t_strategy s);
 void		opts_init(t_opts *o);
+void		data_init(t_data *data);
+void		index_sort(t_list **stack, size_t len);
 
 /* string / helpers */
 int			ft_atoi(const char *s);

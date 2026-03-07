@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 18:24:20 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 19:10:00 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,17 @@ int	parse_input(int argc, char **argv, t_list **stack,
 		index_sort(stack, len);
 	}
 	return (0);
+}
+
+/* wrapper for bonus checker: expose simpler API */
+int	parse_input_bonus(int argc, char **argv, t_list **stack)
+{
+	t_opts opts;
+	t_data data;
+
+	if (!stack)
+		return (0);
+	opts_init(&opts);
+	data_init(&data);
+	return (parse_input(argc, argv, stack, &opts, &data));
 }
