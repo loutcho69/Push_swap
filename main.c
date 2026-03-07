@@ -6,35 +6,36 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/06 22:34:57 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 17:03:46 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//les branchements avec les algos de tri
-// vont se faire ici dans le flag dispatcher
-//je te laisse faire ici
+//TO ADD TO MAIN BRANCH (07/03/2026 16h46)->
 
-/*static int	flag_dispatcher(t_list **stack_a, t_list **stack_b,
+static void	flag_dispatcher(t_list **stack_a, t_list **stack_b,
 	t_opts *opts, t_data *data)
 {
 	size_t	len;
 
-	len = stack_len(*stack_a);
-	if (opts->bench)
+	len = data->len;
 	if (opts->strategy == STRAT_SIMPLE)
-	{
 		simple_sort(stack_a, stack_b, len);
-	}
 	else if (opts->strategy == STRAT_MEDIUM)
-	{
 		medium_sort(stack_a, stack_b, data);
-	}
 	else if (opts->strategy == STRAT_COMPLEX)
-	else
-	return (1);
-}*/
+		complex_sort(stack_a, stack_b, len);
+	else if (opts->strategy == STRAT_ADAPTIVE)
+	{
+		if (data->disorder < 0.2f)
+			simple_sort(stack_a, stack_b, len);
+		else if (data->disorder < 0.5f)
+			medium_sort(stack_a, stack_b, data);
+		else
+			complex_sort(stack_a, stack_b, len);
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -52,6 +53,8 @@ int	main(int argc, char **argv)
 	d = disorder(stack_a);
 	data.disorder = d;
 	flag_dispatcher(&stack_a, &stack_b, &opts, &data);
+	if (opts.bench)
+		print_bench(&data, &opts);
 	stack_clear(&stack_a);
 	stack_clear(&stack_b);
 	return (0);
