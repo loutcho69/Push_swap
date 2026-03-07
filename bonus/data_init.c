@@ -6,16 +6,15 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 18:53:18 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 19:11:54 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 20:15:34 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//tmp
+//tmp to delete once merged
 
 #include "../push_swap.h"
 #include "push_swap_bonus.h"
 
-/* minimal initializer expected by parser.c / parser_bonus.c */
 void	data_init(t_data *data)
 {
 	if (!data)

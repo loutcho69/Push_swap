@@ -15,7 +15,6 @@ SRC_BONUS =	bonus/checker.c \
 	bonus/GNL/get_next_line_utils.c \
 	bonus/GNL/get_next_line.c \
 	bonus/opps/opps_bonus.c \
-	bonus/parser_bonus.c \
 	bonus/data_init.c \
 	bonus/parsing_index.c
 
@@ -31,7 +30,7 @@ OBJDIR = build
 
 OBJ = $(patsubst %.c,$(OBJDIR)/%.o,$(SRC))
 
-OBJ_BONUS = $(patsubst %.c,$(OBJDIR)/%.o,$(filter-out main.c parser.c,$(SRC)) $(SRC_BONUS))
+OBJ_BONUS = $(patsubst %.c,$(OBJDIR)/%.o,$(filter-out main.c,$(SRC)) $(SRC_BONUS))
 
 DEP = $(OBJ:.o=.d)
 DEP_BONUS = $(OBJ_BONUS:.o=.d)

@@ -6,12 +6,13 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 18:37:48 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 19:19:13 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 20:14:55 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //tmp opps.c to test
 //Nos operations normales juste sans le write
+
 #include "../push_swap_bonus.h"
 #include "push_swap.h"
 
@@ -54,18 +55,21 @@ void	push_b(t_list **stack_b, t_list **stack_a, t_data *data)
 	data->pb_count += 1;
 	data->opps_count += 1;
 }
+
 void	rev_rotate_a(t_list **stack_a, t_data *data)
 {
 	*stack_a = (*stack_a)->prev;
 	data->rra_count += 1;
 	data->opps_count += 1;
 }
+
 void	rev_rotate_b(t_list **stack_b, t_data *data)
 {
 	*stack_b = (*stack_b)->prev;
 	data->rrb_count += 1;
 	data->opps_count += 1;
 }
+
 void	rev_rotate_ab(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	t_data	tmp;
@@ -76,6 +80,7 @@ void	rev_rotate_ab(t_list **stack_a, t_list **stack_b, t_data *data)
 	data->rrr_count += 1;
 	data->opps_count += 1;
 }
+
 void	rotate_a(t_list **stack_a, t_data *data)
 {
 	*stack_a = (*stack_a)->next;
@@ -104,8 +109,6 @@ void	swap_a(t_list **stack_a, t_data *data)
 {
 	int	tmp;
 
-	// if(!(*stack_a)->prev || !(*stack_a)->next)
-	//     return ;
 	tmp = (*stack_a)->next->index;
 	(*stack_a)->next->index = (*stack_a)->index;
 	(*stack_a)->index = tmp;
@@ -116,8 +119,6 @@ void	swap_b(t_list **stack_b, t_data *data)
 {
 	int	tmp;
 
-	// if(!(*stack_b)->prev || !(*stack_b)->next)
-	//     return ;
 	tmp = (*stack_b)->next->index;
 	(*stack_b)->next->index = (*stack_b)->index;
 	(*stack_b)->index = tmp;

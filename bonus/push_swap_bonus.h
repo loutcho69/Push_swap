@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:44:42 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 19:09:59 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 20:43:25 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define PUSH_SWAP_BONUS_H
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 3
-#endif
+# endif
 # include <stdlib.h>
 # include <unistd.h>
 # include "../push_swap.h"
@@ -46,8 +46,8 @@ void	init_values_data(t_list **stack, t_data *data);
 void	index_sort(t_list **stack, size_t len);
 
 /* bonus parser wrapper */
-int	parse_input_bonus(int argc, char **argv, t_list **stack);
-
-
+// int	parse_input_bonus(int argc, char **argv, t_list **stack);
+int	parse_input(int argc, char **argv, t_list **stack,
+	t_opts *opts, t_data *data);
 
 #endif
