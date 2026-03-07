@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/07 23:29:35 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 00:43:11 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,8 @@ void				simple_sort_generic(t_list **stack_a, t_list **stack_b,
 void				init_values_data(t_list **stack, t_data *data);
 void				init_chunk_value(t_data *data);
 void				init_target(t_data *data);
+void init_other(t_data *data);
+
 
 /* algorithm helpers */
 float		disorder(t_list *stack);

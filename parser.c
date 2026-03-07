@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/08 00:17:16 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 00:42:57 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	parse_input(int argc, char **argv, t_list **stack, t_data *data)
 	if (argc <= 1 || !stack)
 		return (0);
 	i = 1;
+	init_other(data);
 	while (i < argc)
 	{
 		if (is_flag(argv[i]))
@@ -70,6 +71,7 @@ int	parse_input(int argc, char **argv, t_list **stack, t_data *data)
 			return (0);
 		i++;
 	}
+	init_values_data(stack, data);
 	if (*stack)
 		index_sort(stack, data->len_stack);
 	return (0);
