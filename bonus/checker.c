@@ -6,13 +6,17 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:29:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 18:14:09 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 18:34:35 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 #include "../push_swap.h"
 #include <stdio.h>
+
+//pour lutilisation il faut soit rentrer les operations dans lordre dans le terminal soit
+// pipe le resultat de notre push swap dans le checker genre
+// ./push_swap 3 2 1 5 4 | ./checker 3 2 1 5 4
 
 static int	parse_opps(char *opps, t_list **stack_a, t_list **stack_b)
 {
@@ -43,29 +47,6 @@ static int	parse_opps(char *opps, t_list **stack_a, t_list **stack_b)
 	return (1);
 }
 
-static int build_stack_from_array(t_list **stack, int *arr, size_t n)
-{
-	size_t  i;
-	t_list  *node;
-
-	*stack = NULL;
-	i = 0;
-	while (i < n)
-	{
-		node = node_new(arr[i]);
-		if (!node)
-		{
-			stack_clear(stack);
-			return (0); /* échec allocation */
-		}
-		/* pour ce checker simple on assigne l'index séquentiellement */
-		node->index = (int)i;
-		ft_node_add_back(stack, node);
-		i++;
-	}
-	return (1);
-}
-
 static int	read_stdout(t_list **stack_a, t_list **stack_b) //je vais renvoyer des int pour savoir si ca marche ou pas
 {
 	char	*opps;
@@ -90,38 +71,20 @@ static int	read_stdout(t_list **stack_a, t_list **stack_b) //je vais renvoyer de
 }
 
 
-int main(void)
+int main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	t_list	*cur;
-	int		arr[] = {1, 2, 3};
-	int		ok;
+	t_opts	*opts;
+	t_data	*data;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	cur = stack_a;
-
-	if (!build_stack_from_array(&stack_a, arr, 3))
-		return (1);
+	(void)opts;
+	(void)data;
+	parse_input_bonus(argc, argv, stack_a);
 	if (!read_stdout(&stack_a, &stack_b))
 		return (1);
-
-	cur = stack_a;
-	ok = 1;
-	while (cur && cur->next)
-	{
-		if (cur->value > cur->next->value)
-		{
-			ok = 0;
-			break ;
-		}
-		cur = cur->next;
-	}
-	if (ok)
-		printf("OK\n");
-	else
-		printf("KO\n");
 
 	stack_clear(&stack_a);
 	stack_clear(&stack_b);
