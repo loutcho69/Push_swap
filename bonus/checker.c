@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:29:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 23:09:30 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 23:38:28 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,29 @@
 static int	parse_opps(char *opps, t_list **stack_a,
 	t_list **stack_b, t_data *data)
 {
-	size_t	len;
-
-	if (!opps)
-		return (0);
-	len = ft_strlen(opps);
-	if (len && opps[len - 1] == '\n')
-		opps[len - 1] = '\0';
-	if (!(ft_strcmp(opps, "sa")))
+	if (!(ft_strcmp(opps, "sa\n")))
 		swap_a(stack_a, data);
-	else if (!(ft_strcmp(opps, "sb")))
+	else if (!(ft_strcmp(opps, "sb\n")))
 		swap_b(stack_b, data);
-	else if (!(ft_strcmp(opps, "ss")))
+	else if (!(ft_strcmp(opps, "ss\n")))
 		swap_ab(stack_a, stack_b, data);
-	else if (!(ft_strcmp(opps, "pa")))
+	else if (!(ft_strcmp(opps, "pa\n")))
 		push_a(stack_a, stack_b, data);
-	else if (!(ft_strcmp(opps, "pb")))
+	else if (!(ft_strcmp(opps, "pb\n")))
 		push_b(stack_b, stack_a, data);
-	else if (!(ft_strcmp(opps, "ra")))
+	else if (!(ft_strcmp(opps, "ra\n")))
 		rotate_a(stack_a, data);
-	else if (!(ft_strcmp(opps, "rb")))
+	else if (!(ft_strcmp(opps, "rb\n")))
 		rotate_b(stack_b, data);
-	else if (!(ft_strcmp(opps, "rr")))
+	else if (!(ft_strcmp(opps, "rr\n")))
 		rotate_ab(stack_a, stack_b, data);
-	else if (!(ft_strcmp(opps, "rra")))
+	else if (!(ft_strcmp(opps, "rra\n")))
 		rev_rotate_a(stack_a, data);
-	else if (!(ft_strcmp(opps, "rrb")))
+	else if (!(ft_strcmp(opps, "rrb\n")))
 		rev_rotate_b(stack_b, data);
-	else if (!(ft_strcmp(opps, "rrr")))
+	else if (!(ft_strcmp(opps, "rrr\n")))
 		rev_rotate_ab(stack_a, stack_b, data);
-	else if (opps && *opps)
+	else if (opps)
 		return (0);
 	return (1);
 }
