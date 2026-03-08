@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 15:20:47 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/08 23:57:03 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 00:48:05 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ void	print_bench(t_data *data) // a print sur stderr
 	ft_printf("[bench] total_ops: %d\n", (int)data->opps_count);
 	ft_printf("[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n", (int)data->sa_count,
 		(int)data->sb_count, (int)data->ss_count, (int)data->pa_count, (int)data->pb_count);
-	ft_printf("[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %zu\n",
+	ft_printf("[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %d\n",
 		(int)data->ra_count, (int)data->rb_count, (int)data->rr_count, (int)data->rra_count, (int)data->rrb_count, (int)data->rrr_count);
 }
