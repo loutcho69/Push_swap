@@ -1,24 +1,24 @@
 # verifier le relink a la fin qund on aura tout le makefile
 
-SRC = bench.c \
-	disorder.c \
+SRC = parsing/bench.c \
+	algo/disorder.c \
 	main.c \
-	opps_push.c \
-	opps_rev.c \
-	opps_rot.c \
-	opps_swap.c \
-	parser.c \
-	parsing_index.c \
-	push_swap.c \
-	simple_sort.c \
-	split.c \
-	utils_algo.c \
-	utils_flags.c \
-	utils_init_data.c \
-	utils_node.c \
-	utils_parsing.c \
-	utils_parsing2.c \
-	utils_str.c \
+	opps/opps_push.c \
+	opps/opps_rev.c \
+	opps/opps_rot.c \
+	opps/opps_swap.c \
+	parsing/parser.c \
+	parsing/parsing_index.c \
+	algo/push_swap.c \
+	algo/simple_sort.c \
+	utils/split.c \
+	utils/utils_algo.c \
+	utils/utils_flags.c \
+	utils/utils_init_data.c \
+	utils/utils_node.c \
+	utils/utils_parsing.c \
+	utils/utils_parsing2.c \
+	utils/utils_str.c \
 	ft_printf/ft_printf.c \
 	ft_printf/ft_types.c \
 

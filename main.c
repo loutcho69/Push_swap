@@ -6,30 +6,11 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/08 01:00:15 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 01:24:11 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	flag_dispatcher(t_list **stack_a, t_list **stack_b ,t_data *data)
-{
-	if (data->strategy == STRAT_SIMPLE)
-		simple_sort(stack_a, stack_b, data);
-	else if (data->strategy == STRAT_MEDIUM)
-		medium_sort(stack_a, stack_b, data);
-	else if (data->strategy == STRAT_COMPLEX)
-        complex_sort(stack_a, stack_b, data);
-	else if (data->strategy == STRAT_ADAPTIVE)
-	{
-		if (data->disorder < 0.2f)
-			simple_sort(stack_a, stack_b, data);
-		else if (data->disorder < 0.5f)
-			medium_sort(stack_a, stack_b, data);
-		else
-			complex_sort(stack_a, stack_b, data);
-	}
-}
 
 int	main(int argc, char **argv)
 {
