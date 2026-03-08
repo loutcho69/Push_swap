@@ -6,11 +6,12 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 15:20:47 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/08 00:55:26 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 01:10:42 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "ft_printf.h"
 
 static char	*parse_complexity(t_data *data)
 {
@@ -47,13 +48,13 @@ void	print_bench(t_data *data) // a print sur stderr
 	int	disorder_percent;
 
 	disorder_percent = data->disorder * 100;
-	printf("[bench] disorder: %d\n", disorder_percent);
-	printf("[bench] strategy: %s / %s\n", data_strategy(data),
+	ft_printf("[bench] disorder: %d\n", disorder_percent);
+	ft_printf("[bench] strategy: %s / %s\n", data_strategy(data),
 		parse_complexity(data));
-	printf("[bench] total_ops: %zu\n", data->opps_count);
-	printf("[bench] sa: %zu, sb: %zu, ss: %zu, pa: %zu, pb: %zu\n", data->sa_count,
+	ft_printf("[bench] total_ops: %zu\n", data->opps_count);
+	ft_printf("[bench] sa: %zu, sb: %zu, ss: %zu, pa: %zu, pb: %zu\n", data->sa_count,
 		data->sb_count, data->ss_count, data->pa_count, data->pb_count);
-	printf("[bench] ra: %zu8, rb: %zu, rr: %zu, rra: %zu, rrb: %zu, rrr: %zu\n",
+	ft_printf("[bench] ra: %zu8, rb: %zu, rr: %zu, rra: %zu, rrb: %zu, rrr: %zu\n",
 		data->ra_count, data->rb_count, data->rr_count, data->rra_count, data->rrb_count, data->rrr_count);
 }
 

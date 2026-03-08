@@ -19,12 +19,14 @@ SRC = bench.c \
 	utils_parsing.c \
 	utils_parsing2.c \
 	utils_str.c \
+	ft_printf/ft_printf.c \
+	ft_printf/ft_types.c \
 
 SRC_BONUS =	checker.c \
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -I.
+CFLAGS = -Wall -Wextra -Werror -I. -Ift_printf
 
 NAME = push_swap
 
