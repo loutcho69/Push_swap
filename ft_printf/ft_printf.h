@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 22:31:59 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/08 01:48:21 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 00:21:29 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_buffer
 }			t_buffer;
 
 int			ft_printf(const char *format, ...);
-void		ft_check_type2(va_list args, char c, t_buffer *buffer);
-void		ft_check_type(va_list args, char c, t_buffer *buffer);
+void		ft_check_type2(va_list *args, char c, t_buffer *buffer);
+void		ft_check_type(va_list *args, char c, t_buffer *buffer);
 void		ft_flush(t_buffer *buffer, char c);
 void		ft_putnbr_cpy(long nb, t_buffer *buffer);
 void		ft_putstr_cpy(char *string, t_buffer *buffer);

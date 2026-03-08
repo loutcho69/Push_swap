@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 15:20:47 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/08 23:21:46 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 23:57:03 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char *data_strategy(t_data *data)
 void	print_bench(t_data *data) // a print sur stderr
 {
 	ft_printf("[bench] disorder: %f%%\n", (double)data->disorder*100);
-	ft_printf("[bench] strategy: %s / %s\n", data_strategy(data),
+	ft_printf("[bench] strategy: %s / %s \n", data_strategy(data),
 		parse_complexity(data));
 	ft_printf("[bench] total_ops: %d\n", (int)data->opps_count);
 	ft_printf("[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n", (int)data->sa_count,

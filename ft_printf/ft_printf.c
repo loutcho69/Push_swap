@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 01:33:55 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/08 23:23:48 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 00:21:11 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	ft_flush(t_buffer *buffer, char c)
 	++buffer->index;
 }
 
-void	ft_check_type2(va_list args, char c, t_buffer *buffer)
+void	ft_check_type2(va_list *args, char c, t_buffer *buffer)
 {
 	unsigned long	tmp;
 
 	if (c == 'p')
 	{
-		tmp = va_arg(args, unsigned long);
+		tmp = va_arg(*args, unsigned long);
 		if (!tmp)
 		{
 			ft_putstr_cpy("(nil)", buffer);
@@ -40,25 +40,25 @@ void	ft_check_type2(va_list args, char c, t_buffer *buffer)
 		ft_hexa_cpy(tmp, buffer, "0123456789abcdef");
 	}
 	else if (c == 'x')
-		ft_hexa_cpy(va_arg(args, unsigned int), buffer, "0123456789abcdef");
+		ft_hexa_cpy(va_arg(*args, unsigned int), buffer, "0123456789abcdef");
 	else if (c == 'X')
-		ft_hexa_cpy(va_arg(args, unsigned int), buffer, "0123456789ABCDEF");
+		ft_hexa_cpy(va_arg(*args, unsigned int), buffer, "0123456789ABCDEF");
 	else if (c == 'u')
-		ft_putnbr_cpy(va_arg(args, unsigned int), buffer);
+		ft_putnbr_cpy(va_arg(*args, unsigned int), buffer);
 	else if (c == 'f')
-   		ft_putfloat_cpy(va_arg(args, double), 2, buffer);
+   		ft_putfloat_cpy(va_arg(*args, double), 2, buffer);
 	else
 		ft_flush(buffer, 'p');
 }
 
-void	ft_check_type(va_list args, char c, t_buffer *buffer)
+void	ft_check_type(va_list *args, char c, t_buffer *buffer)
 {
 	if (c == 'c')
-		ft_flush(buffer, va_arg(args, int));
+		ft_flush(buffer, va_arg(*args, int));
 	else if (c == 'd' || c == 'i')
-		ft_putnbr_cpy(va_arg(args, int), buffer);
+		ft_putnbr_cpy(va_arg(*args, int), buffer);
 	else if (c == 's')
-		ft_putstr_cpy(va_arg(args, char *), buffer);
+		ft_putstr_cpy(va_arg(*args, char *), buffer);
 	else if (c == '%')
 		ft_flush(buffer, '%');
 	else if (c == 'p' || c == 'x' || c == 'X' || c == 'u' || c == 'f')
@@ -80,7 +80,7 @@ int	ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
-			ft_check_type(args, format[++i], &buffer);
+			ft_check_type(&args, format[++i], &buffer);
 		else
 			ft_flush(&buffer, format[i]);
 		i++;
