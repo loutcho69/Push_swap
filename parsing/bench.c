@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 15:20:47 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/08 01:50:41 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 23:21:46 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,12 @@ static char *data_strategy(t_data *data)
 
 void	print_bench(t_data *data) // a print sur stderr
 {
-	// float	disorder_percent;
-
-	// disorder_percent = data->disorder;
-	ft_printf("[bench] disorder: %f %%\n", (double)data->disorder);
+	ft_printf("[bench] disorder: %f%%\n", (double)data->disorder*100);
 	ft_printf("[bench] strategy: %s / %s\n", data_strategy(data),
 		parse_complexity(data));
-	ft_printf("[bench] total_ops: %zu\n", data->opps_count);
-	ft_printf("[bench] sa: %zu, sb: %zu, ss: %zu, pa: %zu, pb: %zu\n", data->sa_count,
-		data->sb_count, data->ss_count, data->pa_count, data->pb_count);
-	ft_printf("[bench] ra: %zu8, rb: %zu, rr: %zu, rra: %zu, rrb: %zu, rrr: %zu\n",
-		data->ra_count, data->rb_count, data->rr_count, data->rra_count, data->rrb_count, data->rrr_count);
+	ft_printf("[bench] total_ops: %d\n", (int)data->opps_count);
+	ft_printf("[bench] sa: %d, sb: %d, ss: %d, pa: %d, pb: %d\n", (int)data->sa_count,
+		(int)data->sb_count, (int)data->ss_count, (int)data->pa_count, (int)data->pb_count);
+	ft_printf("[bench] ra: %d, rb: %d, rr: %d, rra: %d, rrb: %d, rrr: %zu\n",
+		(int)data->ra_count, (int)data->rb_count, (int)data->rr_count, (int)data->rra_count, (int)data->rrb_count, (int)data->rrr_count);
 }
-
