@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf2.c                                       :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 01:33:55 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/08 01:16:07 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 01:53:30 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	ft_check_type2(va_list args, char c, t_buffer *buffer)
 		ft_hexa_cpy(va_arg(args, unsigned int), buffer, "0123456789ABCDEF");
 	else if (c == 'u')
 		ft_putnbr_cpy(va_arg(args, unsigned int), buffer);
+	else if (c == 'f')
+   		ft_putfloat_cpy(va_arg(args, double), 2, buffer);
 	else
 		ft_flush(buffer, 'p');
 }
@@ -52,14 +54,14 @@ void	ft_check_type2(va_list args, char c, t_buffer *buffer)
 void	ft_check_type(va_list args, char c, t_buffer *buffer)
 {
 	if (c == 'c')
-		ft_cpy_char(va_arg(args, int), buffer);
+		ft_flush(buffer, va_arg(args, int));
 	else if (c == 'd' || c == 'i')
 		ft_putnbr_cpy(va_arg(args, int), buffer);
 	else if (c == 's')
 		ft_putstr_cpy(va_arg(args, char *), buffer);
 	else if (c == '%')
 		ft_flush(buffer, '%');
-	else if (c == 'p' || c == 'x' || c == 'X' || c == 'u')
+	else if (c == 'p' || c == 'x' || c == 'X' || c == 'u' || c == 'f')
 		ft_check_type2(args, c, buffer);
 }
 
