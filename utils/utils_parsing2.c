@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_parsing.c                                    :+:      :+:    :+:   */
+/*   utils_parsing2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:12 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/06 22:53:08 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 04:43:44 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,43 @@ int	ft_atoi(const char *s)
 	return (result);
 }
 
+// int	has_duplicate(t_list *stack, int value)
+// {
+// 	t_list	*head;
+// 	t_list	*cur;
+
+// 	if (stack == NULL)
+// 		return (1);
+// 	head = stack;
+// 	cur = head;
+// 	while (cur != NULL)
+// 	{
+// 		if (cur->value == value)
+// 			return (0);
+// 		cur = cur->next;
+// 		if (cur == head)
+// 			break ;
+// 	}
+// 	return (1);
+// }
 int	has_duplicate(t_list *stack, int value)
 {
 	t_list	*head;
 	t_list	*cur;
 
 	if (stack == NULL)
-		return (1);
+		return (0);
 	head = stack;
 	cur = head;
 	while (cur != NULL)
 	{
 		if (cur->value == value)
-			return (0);
+			return (1);
 		cur = cur->next;
 		if (cur == head)
 			break ;
 	}
-	return (1);
+	return (0);
 }
 
 int	is_token_in_int_range(const char *s)
