@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/08 02:31:05 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 04:25:42 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	parse_one_arg(char *arg, t_list **stack)
 		if (!is_token_int(tokens[j]) || !is_token_in_int_range(tokens[j]))
 			return (parse_error(stack, tokens));
 		value = ft_atoi(tokens[j]);
-		if (!has_duplicate(*stack, value))
+		if (has_duplicate(*stack, value))
 			return (parse_error(stack, tokens));
 		new_node = ft_lstnew(value);
 		if (!new_node)
