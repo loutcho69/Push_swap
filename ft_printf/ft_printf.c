@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 01:33:55 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/08 01:53:30 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 23:23:48 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_flush(t_buffer *buffer, char c)
 {
 	if (buffer->index >= BUFFER_SIZE)
 	{
-		write(1, buffer->res, BUFFER_SIZE);
+		write(2, buffer->res, BUFFER_SIZE);
 		buffer->count += BUFFER_SIZE;
 		buffer->index = 0;
 	}
@@ -86,6 +86,6 @@ int	ft_printf(const char *format, ...)
 		i++;
 	}
 	va_end(args);
-	write(1, buffer.res, buffer.index);
+	write(2, buffer.res, buffer.index);
 	return (buffer.index + buffer.count);
 }
