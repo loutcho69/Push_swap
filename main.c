@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/08 00:57:35 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/08 01:00:15 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	parse_input(argc, argv, &stack_a, &data);
 	data.len_stack = count_node(stack_a);
 	if (!stack_a)
-	return (0);
+		return (write(2,"Error\n",6));
 	d = disorder(stack_a);
 	data.disorder = d;
 	flag_dispatcher(&stack_a, &stack_b, &data);
