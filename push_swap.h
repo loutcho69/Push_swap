@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/08 01:23:58 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 01:44:27 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int			parse_one_flag(const char *s, t_data *data);
 int			set_strategy(t_data *data, t_strategy s);
 void		opts_init(t_data *data);
 void	flag_dispatcher(t_list **stack_a, t_list **stack_b ,t_data *data);
+int is_sorted(t_list *stack, size_t len);
 
 ////////////////////OPPS/////////////////////////////////////
 void				swap_a(t_list **stack_a, t_data *data);

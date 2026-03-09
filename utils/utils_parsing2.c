@@ -6,11 +6,24 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:12 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/08 04:43:44 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 01:45:12 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int is_sorted(t_list *stack, size_t len)
+{
+    size_t i = 0;
+    while (i < len - 1)
+    {
+        if (stack->index > stack->next->index)
+            return (0);
+        stack = stack->next;
+        i++;
+    }
+    return (1);
+}
 
 int	ft_atoi(const char *s)
 {

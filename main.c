@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 01:24:58 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 01:44:50 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	main(int argc, char **argv)
 	data.len_stack = count_node(stack_a);
 	d = disorder(stack_a);
 	data.disorder = d;
-	flag_dispatcher(&stack_a, &stack_b, &data);
+	if (!is_sorted(stack_a, data.len_stack))
+    	flag_dispatcher(&stack_a, &stack_b, &data);
 	if (data.bench)
 		print_bench(&data);
 	ft_lstclear(&stack_a, data.len_stack);
