@@ -3,26 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parsing2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:12 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 02:21:54 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:45:00 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_sorted(t_list *stack, size_t len)
+int	is_sorted(t_list *stack, size_t len)
 {
-    size_t i = 0;
-    while (i < len - 1)
-    {
-        if (stack->index > stack->next->index)
-            return (0);
-        stack = stack->next;
-        i++;
-    }
-    return (1);
+	size_t	i;
+
+	i = 0;
+	while (i < len - 1)
+	{
+		if (stack->index > stack->next->index)
+			return (0);
+		stack = stack->next;
+		i++;
+	}
+	return (1);
 }
 
 int	ft_atoi(const char *s)
@@ -52,6 +54,7 @@ int	ft_atoi(const char *s)
 		result = -result;
 	return (result);
 }
+
 int	has_duplicate(t_list *stack, int value)
 {
 	t_list	*head;
