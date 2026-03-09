@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:01:01 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/09 13:39:38 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/09 23:41:47 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ void		complex_sort(t_list **stack_a, t_list **stack_b, t_data *data);
 int			ft_atoi(const char *s);
 int			ft_isdigit(char c);
 int			ft_strcmp(const char *s1, const char *s2);
-int			ft_strcmp_10(const char *s1, const char *s2);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlen(const char *s);
 /////////////////NODE_UTILS/////////////////////////////////
