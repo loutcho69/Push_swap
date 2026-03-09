@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 22:31:59 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/09 00:21:29 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:50:20 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void		ft_putnbr_cpy(long nb, t_buffer *buffer);
 void		ft_putstr_cpy(char *string, t_buffer *buffer);
 void		ft_put_hexa(unsigned long nb, char *digit, t_buffer *buffer);
 void		ft_hexa_cpy(unsigned long nb, t_buffer *buffer, char *digit);
-void	ft_putfloat_cpy(double n, int precision, t_buffer *buffer);
-
+void		ft_putfloat_cpy(double n, int precision, t_buffer *buffer);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rot_opps.c                                         :+:      :+:    :+:   */
+/*   opps_rot.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:54:01 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:51:01 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	rotate_b(t_list **stack_b, t_data *data)
 	data->rb_count += 1;
 	data->opps_count += 1;
 }
+
 void	rotate_ab(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	t_data	tmp;

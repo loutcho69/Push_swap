@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:54:04 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:49:52 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	simple_sort_three(t_list **stack_a, t_data *data)
 	else if (a < b && b > c && a > c)
 		rev_rotate_a(stack_a, data);
 }
+
 void	simple_sort_two(t_list **stack_a, t_data *data)
 {
 	if ((*stack_a)->index == 0)
@@ -47,6 +48,7 @@ void	simple_sort_two(t_list **stack_a, t_data *data)
 	else
 		swap_a(stack_a, data);
 }
+
 void	simple_sort_four(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	while ((*stack_a)->index != 0)
@@ -73,6 +75,7 @@ void	simple_sort_five(t_list **stack_a, t_list **stack_b, t_data *data)
 		data->target_min--;
 	}
 }
+
 void	simple_sort_generic(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	while (data->target_min < data->len_stack)

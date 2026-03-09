@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 01:44:50 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:48:31 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	d = disorder(stack_a);
 	data.disorder = d;
 	if (!is_sorted(stack_a, data.len_stack))
-    	flag_dispatcher(&stack_a, &stack_b, &data);
+		flag_dispatcher(&stack_a, &stack_b, &data);
 	if (data.bench)
 		print_bench(&data);
 	ft_lstclear(&stack_a, data.len_stack);

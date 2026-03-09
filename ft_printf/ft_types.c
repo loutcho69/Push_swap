@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_types.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 17:31:40 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/08 01:46:01 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:50:33 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,3 @@ void	ft_putfloat_cpy(double n, int precision, t_buffer *buffer)
 	dec_part = (long)((n - int_part) * mult);
 	ft_putnbr_cpy(dec_part, buffer);
 }
-

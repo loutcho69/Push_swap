@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/09 02:12:15 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:49:37 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	simple_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	init_target(data);
 	if (data->len_stack < 2)
-		return;
+		return ;
 	if (data->len_stack == 2)
 		simple_sort_two(stack_a, data);
 	else if (data->len_stack == 3)
@@ -29,7 +29,7 @@ void	simple_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 		simple_sort_generic(stack_a, stack_b, data);
 }
 
- void	medium_sort(t_list **stack_a, t_list **stack_b, t_data *data)
+void	medium_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	size_t	i;
 
@@ -55,7 +55,8 @@ void	simple_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 	}
 	push_opti(stack_a, stack_b, data);
 }
- void	complex_sort(t_list **stack_a, t_list **stack_b, t_data *data)
+
+void	complex_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	size_t	max_bit;
 	size_t	bit;

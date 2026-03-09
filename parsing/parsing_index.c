@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_index.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 02:38:28 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/09 02:21:12 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:51:33 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// ici l indexation du parsing se fait ainsi que  envoie de la len de la satck dans la strcut data
 
 #include "push_swap.h"
 

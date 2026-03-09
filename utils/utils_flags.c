@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   utils_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 14:59:27 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/08 01:23:31 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:52:35 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	flag_dispatcher(t_list **stack_a, t_list **stack_b ,t_data *data)
+void	flag_dispatcher(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	if (data->strategy == STRAT_SIMPLE)
 		simple_sort(stack_a, stack_b, data);
 	else if (data->strategy == STRAT_MEDIUM)
 		medium_sort(stack_a, stack_b, data);
 	else if (data->strategy == STRAT_COMPLEX)
-        complex_sort(stack_a, stack_b, data);
+		complex_sort(stack_a, stack_b, data);
 	else if (data->strategy == STRAT_ADAPTIVE)
 	{
 		if (data->disorder < 0.2f)
@@ -30,11 +30,11 @@ void	flag_dispatcher(t_list **stack_a, t_list **stack_b ,t_data *data)
 			complex_sort(stack_a, stack_b, data);
 	}
 }
+
 int	is_flag(const char *s)
 {
 	return (s && s[0] == '-' && s[1] == '-');
 }
-
 
 int	set_strategy(t_data *data, t_strategy s)
 {

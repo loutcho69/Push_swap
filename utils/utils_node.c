@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_node.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 22:50:43 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/09 02:21:34 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:53:55 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ int	count_node(t_list *stack)
 {
 	size_t	count;
 	int		tmp;
-	if(!stack)
-		return(0);
+
+	if (!stack)
+		return (0);
 	tmp = stack->value;
 	count = 1;
 	stack = stack->next;
@@ -28,6 +29,7 @@ int	count_node(t_list *stack)
 	}
 	return (count);
 }
+
 void	ft_lstadd_front(t_list **stack, t_list *new_node)
 {
 	if (!stack || !new_node)
@@ -73,9 +75,10 @@ void	ft_lstclear(t_list **lst, int len)
 		len--;
 	}
 	if (len == 1)
-        free(*lst);
-    *lst = NULL;
+		free(*lst);
+	*lst = NULL;
 }
+
 void	ft_lstadd_back(t_list **stack, t_list *new_node)
 {
 	if (!stack || !new_node)

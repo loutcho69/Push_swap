@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_opps.c                                         :+:      :+:    :+:   */
+/*   opps_rev.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:53:59 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:50:44 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	rev_rotate_a(t_list **stack_a, t_data *data)
 	data->rra_count += 1;
 	data->opps_count += 1;
 }
+
 void	rev_rotate_b(t_list **stack_b, t_data *data)
 {
 	*stack_b = (*stack_b)->prev;
@@ -26,6 +27,7 @@ void	rev_rotate_b(t_list **stack_b, t_data *data)
 	data->rrb_count += 1;
 	data->opps_count += 1;
 }
+
 void	rev_rotate_ab(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	t_data	tmp;

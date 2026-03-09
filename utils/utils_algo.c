@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_utils.c                                       :+:      :+:    :+:   */
+/*   utils_algo.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 00:36:39 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:53:02 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:52:04 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ size_t	get_max_bit(size_t len)
 	}
 	return (count);
 }
+
 size_t	my_sqrt(size_t n)
 {
 	size_t	i;
@@ -61,6 +62,7 @@ static bool	rotate_check(t_list *stack, size_t target_min, size_t target_max)
 	else
 		return (false);
 }
+
 void	push_opti(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	size_t	index;
@@ -80,6 +82,7 @@ void	push_opti(t_list **stack_a, t_list **stack_b, t_data *data)
 		index--;
 	}
 }
+
 void	rotate_opti(t_list **stack, char c, t_data *data)
 {
 	if (c == 'a')
