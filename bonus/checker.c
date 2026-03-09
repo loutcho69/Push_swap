@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:29:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 18:49:25 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/09 19:15:06 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ static int	read_stdout(t_list **stack_a, t_list **stack_b, t_data *data)
 	}
 	return (1);
 }
-
 
 int	main(int argc, char **argv)
 {

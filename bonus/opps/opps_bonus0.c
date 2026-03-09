@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 18:37:48 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 18:22:22 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/09 19:15:21 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,3 @@ void	rev_rotate_ab(t_list **stack_a, t_list **stack_b, t_data *data)
 	data->rrr_count += 1;
 	data->opps_count += 1;
 }
-
-
