@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 02:38:28 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 04:53:06 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 02:21:12 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,3 @@ void	index_sort(t_list **stack, size_t len)
 		len1--;
 	}
 }
-
-// int	main(void)
-// {
-// 	t_list *stack_a;
-// 	int i;
-// 	int len;
-// 	len = 5;
-
-// 	i = 0;
-
-// 	stack_a = ft_lstnew(-45);
-// 	ft_lstadd_front(&stack_a, ft_lstnew(-92));
-// 	ft_lstadd_front(&stack_a, ft_lstnew(8));
-// 	ft_lstadd_front(&stack_a, ft_lstnew(2));
-// 	ft_lstadd_front(&stack_a, ft_lstnew(1));
-
-// 	index_sort(&stack_a, len);
-
-// 	while (len > i)
-// 	{
-// 		printf("%d\n", stack_a->index);
-// 		stack_a = stack_a->next;
-// 		i++;
-// 	}
-// }

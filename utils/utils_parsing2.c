@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:12 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 01:45:12 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 02:21:54 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,6 @@ int	ft_atoi(const char *s)
 		result = -result;
 	return (result);
 }
-
-// int	has_duplicate(t_list *stack, int value)
-// {
-// 	t_list	*head;
-// 	t_list	*cur;
-
-// 	if (stack == NULL)
-// 		return (1);
-// 	head = stack;
-// 	cur = head;
-// 	while (cur != NULL)
-// 	{
-// 		if (cur->value == value)
-// 			return (0);
-// 		cur = cur->next;
-// 		if (cur == head)
-// 			break ;
-// 	}
-// 	return (1);
-// }
 int	has_duplicate(t_list *stack, int value)
 {
 	t_list	*head;
