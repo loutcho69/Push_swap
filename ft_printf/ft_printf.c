@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 01:33:55 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/09 00:47:34 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 01:09:22 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_check_type2(va_list *args, char c, t_buffer *buffer)
 	else if (c == 'u')
 		ft_putnbr_cpy(va_arg(*args, unsigned int), buffer);
 	else if (c == 'f')
-   		ft_putfloat_cpy(va_arg(*args, double), 3, buffer);
+   		ft_putfloat_cpy(va_arg(*args, double), 2, buffer);
 	else
 		ft_flush(buffer, 'p');
 }
