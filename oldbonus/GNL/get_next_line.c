@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:34:03 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 16:20:03 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/07 17:57:27 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static ssize_t	ft_find_nl(char *buf, ssize_t len)
 	i = 0;
 	while (i < len)
 	{
-		if (buf[i] == '\n')
+		if (buf[i] == 'X')
 			return (i);
 		i++;
 	}

@@ -6,13 +6,12 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:29:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 18:49:25 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/09 14:16:39 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 #include "../push_swap.h"
-#include <stdio.h>
 
 static int	parse_opps(char *opps, t_list **stack_a,
 	t_list **stack_b, t_data *data)
@@ -55,8 +54,8 @@ static int	read_stdout(t_list **stack_a, t_list **stack_b, t_data *data)
 		{
 			write(2, "Error\n", 6);
 			free(opps);
-			ft_lstclear(stack_a, count_node(*stack_a));
-			ft_lstclear(stack_b, count_node(*stack_b));
+			stack_clear(stack_a);
+			stack_clear(stack_b);
 			return (0);
 		}
 		free(opps);
@@ -75,8 +74,7 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	data_init(&data);
-	if (!parse_input_bonus(argc, argv, &stack_a, &data))
-		return (1);
+	parse_input(argc, argv, &stack_a, &data);
 	if (!stack_a)
 	{
 		write(2, "Error\n", 6);
@@ -84,12 +82,11 @@ int	main(int argc, char **argv)
 	}
 	if (!read_stdout(&stack_a, &stack_b, &data))
 		return (1);
-	if (is_sorted(stack_a, count_node(stack_a))
-		&& (!stack_b || count_node(stack_b) == 0))
+	if (is_sorted(stack_a) && (!stack_b || stack_len(stack_b) == 0))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	ft_lstclear(&stack_a, count_node(stack_a));
-	ft_lstclear(&stack_b, count_node(stack_b));
+	stack_clear(&stack_a);
+	stack_clear(&stack_b);
 	return (0);
 }

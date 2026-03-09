@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_index.c                                    :+:      :+:    :+:   */
+/*   opps_bonus2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/07 18:50:40 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 18:39:08 by btheveny         ###   ########.fr       */
+/*   Created: 2026/03/09 18:22:34 by btheveny          #+#    #+#             */
+/*   Updated: 2026/03/09 18:22:57 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include "push_swap_bonus.h"
+#include "../push_swap_bonus.h"
 
-void	index_sort(t_list **stack, size_t len)
+void	swap_b(t_list **stack_b, t_data *data)
 {
-	size_t	i;
-	size_t	len1;
-	size_t	len2;
-	int		tmp;
+	int	tmp;
 
-	len1 = len;
-	while (len1 > 0)
-	{
-		i = 0;
-		tmp = (*stack)->value;
-		len2 = len;
-		while (len2 > 0)
-		{
-			if (tmp > (*stack)->next->value)
-				i++;
-			len2--;
-			(*stack) = (*stack)->next;
-		}
-		(*stack)->index = i;
-		(*stack) = (*stack)->next;
-		len1--;
-	}
+	tmp = (*stack_b)->next->index;
+	(*stack_b)->next->index = (*stack_b)->index;
+	(*stack_b)->index = tmp;
+	data->sb_count += 1;
+	data->opps_count += 1;
+}
+
+void	swap_ab(t_list **stack_a, t_list **stack_b, t_data *data)
+{
+	t_data	tmp;
+
+	tmp = *data;
+	swap_a(stack_a, &tmp);
+	swap_b(stack_b, &tmp);
+	data->ss_count += 1;
+	data->opps_count += 1;
 }
