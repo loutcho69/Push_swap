@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 18:53:15 by lobroue           #+#    #+#             */
-/*   Updated: 2026/03/06 23:30:37 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 01:30:22 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 void	simple_sort(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	init_target(data);
+	if (data->len_stack < 2)
+		return;
 	if (data->len_stack == 2)
 		simple_sort_two(stack_a, data);
 	else if (data->len_stack == 3)
