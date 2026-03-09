@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 01:08:44 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 02:19:58 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:28:57 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static int	parse_token(char *token, t_list **stack, char **tokens)
 	t_list	*new_node;
 
 	if (!is_token_int(token) || !is_token_in_int_range(token))
-		return (parse_error(stack, tokens), 0);
+		return (parse_error(stack, tokens));
 	value = ft_atoi(token);
 	if (has_duplicate(*stack, value))
-		return (parse_error(stack, tokens), 0);
+		return (parse_error(stack, tokens));
 	new_node = ft_lstnew(value);
 	if (!new_node)
-		return (parse_error(stack, tokens), 0);
+		return (parse_error(stack, tokens));
 	ft_lstadd_back(stack, new_node);
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:30:53 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/07 23:38:00 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 13:28:34 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ int	parse_error(t_list **stack, char **tokens)
 	if (stack)
 		ft_lstclear(stack, count_node((*stack)));
 	write(2, "Error\n", 6);
-	return (1);
+	return (0);
 }
