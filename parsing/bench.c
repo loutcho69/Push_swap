@@ -6,7 +6,7 @@
 /*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 15:20:47 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 00:48:05 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/09 02:13:33 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char *data_strategy(t_data *data)
 		return("Adaptive");
 }
 
-void	print_bench(t_data *data) // a print sur stderr
+void	print_bench(t_data *data)
 {
 	ft_printf("[bench] disorder: %f%%\n", (double)data->disorder*100);
 	ft_printf("[bench] strategy: %s / %s \n", data_strategy(data),
