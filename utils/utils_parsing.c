@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:30:53 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 13:28:34 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/09 23:35:19 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,6 @@
 int	ft_isdigit(char c)
 {
 	return (c >= '0' && c <= '9');
-}
-
-int	ft_strcmp_10(const char *a, const char *b)
-{
-	int	i;
-
-	i = 0;
-	while (i < 10)
-	{
-		if (a[i] != b[i])
-			return ((unsigned char)a[i] - (unsigned char)b[i]);
-		i++;
-	}
-	return (0);
 }
 
 int	sign_checker(const char *s, const char **p)

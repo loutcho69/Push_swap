@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parsing2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:12 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 13:45:00 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/09 23:32:43 by lobroue          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,11 @@ int	is_token_in_int_range(const char *s)
 		len++;
 	if (len != 10)
 		return (len < 10);
-	if (sign == 1)
+	if (sign == -1)
 		limit = "2147483647";
 	else
 		limit = "2147483648";
-	if (ft_strcmp_10(p, limit) > 0)
+	if (ft_strcmp(p, limit) != 0)
 		return (0);
 	return (1);
 }
