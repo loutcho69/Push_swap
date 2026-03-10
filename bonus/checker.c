@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:29:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/10 01:29:55 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/10 11:06:11 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,12 @@ int	main(int argc, char **argv)
 	{
 		write(2, "Error\n", 6);
 		return (1);
+	}
+	if (is_sorted(stack_a, count_node(stack_a))
+		&& (!stack_b || count_node(stack_b) == 0))
+	{
+		write(1, "OK\n", 3);
+		return (0);
 	}
 	if (!read_stdout(&stack_a, &stack_b, &data))
 		return (1);
