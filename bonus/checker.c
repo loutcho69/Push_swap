@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:29:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/10 11:06:11 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/10 11:24:07 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,20 @@ static int	read_stdout(t_list **stack_a, t_list **stack_b, t_data *data)
 	return (1);
 }
 
+static int	write_error_and_return_1(void)
+{
+	write(2, "Error\n", 6);
+	return (1);
+}
+
+static int	write_ok_clears_and_returns_0(t_list *stack_a, t_list *stack_b)
+{
+	write(1, "OK\n", 3);
+	ft_lstclear(&stack_a, count_node(stack_a));
+	ft_lstclear(&stack_b, count_node(stack_b));
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
@@ -77,17 +91,11 @@ int	main(int argc, char **argv)
 	if (!parse_input_bonus(argc, argv, &stack_a, &data))
 		return (1);
 	if (!stack_a)
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
+		return (write_error_and_return_1());
 	if (is_sorted(stack_a, count_node(stack_a))
 		&& (!stack_b || count_node(stack_b) == 0))
-	{
-		write(1, "OK\n", 3);
-		return (0);
-	}
-	if (!read_stdout(&stack_a, &stack_b, &data))
+		return (write_ok_clears_and_returns_0(stack_a, stack_b));
+	else if (!read_stdout(&stack_a, &stack_b, &data))
 		return (1);
 	if (is_sorted(stack_a, count_node(stack_a))
 		&& (!stack_b || count_node(stack_b) == 0))
