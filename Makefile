@@ -1,6 +1,13 @@
-# verifier le relink a la fin qund on aura tout le makefile
+CC = cc
 
-SRC = parsing/bench.c \
+CFLAGS = -Wall -Wextra -Werror -I. -Ift_printf
+
+OBJDIR = build
+
+NAME = push_swap
+NAME_BONUS = checker
+
+SRCS := parsing/bench.c \
 	algo/disorder.c \
 	main.c \
 	opps/opps_push.c \
@@ -9,37 +16,54 @@ SRC = parsing/bench.c \
 	opps/opps_swap.c \
 	parsing/parser.c \
 	parsing/parsing_index.c \
-	algo/push_swap.c \
-	algo/simple_sort.c \
-	utils/split.c \
-	utils/utils_algo.c \
-	utils/utils_flags.c \
-	utils/utils_init_data.c \
-	utils/utils_node.c \
-	utils/utils_parsing.c \
-	utils/utils_parsing2.c \
-	utils/utils_str.c \
-	ft_printf/ft_printf.c \
-	ft_printf/ft_types.c \
+ 	algo/push_swap.c \
+ 	algo/simple_sort.c \
+ 	utils/split.c \
+ 	utils/utils_algo.c \
+ 	utils/utils_flags.c \
+ 	utils/utils_init_data.c \
+ 	utils/utils_node.c \
+ 	utils/utils_parsing.c \
+ 	utils/utils_parsing2.c \
+ 	utils/utils_str.c \
+ 	ft_printf/ft_printf.c \
+ 	ft_printf/ft_types.c
 
-SRC_BONUS =	checker.c \
+COMMON_SRCS := parsing/bench.c \
+	algo/disorder.c \
+ 	parsing/parser.c \
+ 	algo/push_swap.c \
+ 	algo/simple_sort.c \
+ 	utils/split.c \
+ 	utils/utils_algo.c \
+ 	utils/utils_flags.c \
+ 	utils/utils_init_data.c \
+ 	utils/utils_node.c \
+ 	utils/utils_parsing.c \
+ 	utils/utils_parsing2.c \
+ 	utils/utils_str.c \
+ 	ft_printf/ft_printf.c \
+ 	ft_printf/ft_types.c
 
-CC = cc
+BONUS_ONLY := bonus/checker.c \
+	bonus/parsing_index.c \
+	bonus/data_init.c \
+	bonus/parse_input_bonus.c \
+	bonus/opps/opps_bonus0.c \
+	bonus/opps/opps_bonus1.c \
+	bonus/opps/opps_bonus2.c \
+	bonus/GNL/get_next_line.c \
+	bonus/GNL/get_next_line_utils.c \
 
-CFLAGS = -Wall -Wextra -Werror -I. -Ift_printf
 
-NAME = push_swap
+SRCS_MAIN := $(SRCS)
+SRCS_BONUS := $(COMMON_SRCS) $(BONUS_ONLY)
 
-NAME_BONUS = checker
+OBJ := $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS_MAIN))
+OBJ_BONUS := $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS_BONUS))
 
-OBJDIR = build
-
-OBJ = $(patsubst %.c,$(OBJDIR)/%.o,$(SRC))
-
-OBJ_BONUS = $(patsubst %.c,$(OBJDIR)/%.o,$(SRC) $(SRC_BONUS))
-
-DEP = $(OBJ:.o=.d)
-DEP_BONUS = $(OBJ_BONUS:.o=.d)
+DEP := $(OBJ:.o=.d)
+DEP_BONUS := $(OBJ_BONUS:.o=.d)
 
 all: $(NAME)
 
@@ -60,8 +84,7 @@ clean:
 	rm -f *.o *.d utils/*.o utils/*.d
 
 fclean: clean
-	rm -f $(NAME)
-	rm -f $(NAME_BONUS)
+	rm -f $(NAME) $(NAME_BONUS)
 
 re: fclean all
 
