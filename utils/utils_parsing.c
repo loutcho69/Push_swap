@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:30:53 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 23:35:19 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/10 11:34:45 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int	sign_checker(const char *s, const char **p)
 		if (**p == '-')
 			sign = -1;
 		(*p)++;
+		if (**p == '\0')
+		{
+			*p = NULL;
+			return (sign);
+		}
 	}
 	return (sign);
 }

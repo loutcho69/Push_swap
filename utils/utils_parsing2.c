@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:12 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/10 10:56:33 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/10 11:38:07 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,15 @@ int	is_token_in_int_range(const char *s)
 	if (!s)
 		return (0);
 	sign = sign_checker(s, &p);
-	if (*p == '\0')
+	if (p == NULL)
 		return (0);
 	if (p[0] == '0' && p[1] != '\0')
 		return (0);
 	len = 0;
 	while (p[len] && ft_isdigit(p[len]))
 		len++;
-	if (len < 10)
-		return (1);
-	if (len > 10)
-		return (0);
+	if (len != 10)
+		return (len < 10);
 	if (sign == -1)
 		limit = "2147483648";
 	else
