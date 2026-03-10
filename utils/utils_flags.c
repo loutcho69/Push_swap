@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 14:59:27 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/09 13:52:35 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/10 14:01:48 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	parse_one_flag(const char *s, t_data *data)
 {
 	if (!s || !data)
 		return (0);
-	if (ft_strcmp(s, "--bench") == 0)
+	if (ft_strcmp(s, "--bench") == 0 && data->bench != 1)
 	{
 		data->bench = 1;
 		return (1);
