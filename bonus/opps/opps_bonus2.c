@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   opps_bonus2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 18:22:34 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/10 01:41:17 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/10 14:20:06 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 void	swap_b(t_list **stack_b, t_data *data)
 {
 	int	tmp;
+
+	if (!stack_b || !*stack_b)
+		return ;
 
 	tmp = (*stack_b)->next->index;
 	(*stack_b)->next->index = (*stack_b)->index;

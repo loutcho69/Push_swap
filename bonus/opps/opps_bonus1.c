@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   opps_bonus1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 18:21:19 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/10 01:40:44 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/10 14:20:05 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 void	rotate_a(t_list **stack_a, t_data *data)
 {
+	if (!stack_a || !*stack_a)
+		return ;
+
 	*stack_a = (*stack_a)->next;
 	data->ra_count += 1;
 	data->opps_count += 1;
@@ -22,6 +25,9 @@ void	rotate_a(t_list **stack_a, t_data *data)
 
 void	rotate_b(t_list **stack_b, t_data *data)
 {
+	if (!stack_b || !*stack_b)
+		return ;
+
 	*stack_b = (*stack_b)->next;
 	data->rb_count += 1;
 	data->opps_count += 1;
@@ -41,6 +47,9 @@ void	rotate_ab(t_list **stack_a, t_list **stack_b, t_data *data)
 void	swap_a(t_list **stack_a, t_data *data)
 {
 	int	tmp;
+
+	if (!stack_a || !*stack_a)
+		return ;
 
 	tmp = (*stack_a)->next->index;
 	(*stack_a)->next->index = (*stack_a)->index;

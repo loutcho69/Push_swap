@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   opps_bonus0.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lobroue <lobroue@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 18:37:48 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/10 01:40:20 by lobroue          ###   ########.fr       */
+/*   Updated: 2026/03/10 14:20:05 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ void	push_b(t_list **stack_b, t_list **stack_a, t_data *data)
 
 void	rev_rotate_a(t_list **stack_a, t_data *data)
 {
+	if (!stack_a || !*stack_a)
+		return ;
+
 	*stack_a = (*stack_a)->prev;
 	data->rra_count += 1;
 	data->opps_count += 1;
@@ -62,6 +65,9 @@ void	rev_rotate_a(t_list **stack_a, t_data *data)
 
 void	rev_rotate_b(t_list **stack_b, t_data *data)
 {
+	if (!stack_b || !*stack_b)
+		return ;
+
 	*stack_b = (*stack_b)->prev;
 	data->rrb_count += 1;
 	data->opps_count += 1;
