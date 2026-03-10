@@ -6,13 +6,12 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 18:29:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/10 12:04:35 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/10 13:24:16 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 #include "../push_swap.h"
-#include <stdio.h>
 
 static int	parse_opps(char *opps, t_list **stack_a,
 	t_list **stack_b, t_data *data)
