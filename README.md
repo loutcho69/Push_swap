@@ -1,14 +1,157 @@
-Chunk (pre tri via divison en plusieurs groupes)
-valeur d index(assigner valuer 0-100 pour les 10 plus petits etc)
+*This project has been created as part of the 42 curriculum by btheveny and lobroue.*
+
+# Push_swap
+
+## Description
+
+`push_swap` is a sorting project from the 42 curriculum.
+Its goal is to sort a stack of integers in ascending order using only a restricted set of stack operations and a second auxiliary stack.
+The main challenge is not only to sort correctly, but to do so with as few operations as possible.
+
+This repository contains two programs:
+
+- `push_swap`, which generates a sequence of valid operations to sort the input.
+- `checker` (bonus), which reads a list of operations from standard input, applies them to the stacks, and prints `OK` if the stack is sorted correctly, or `KO` otherwise.
+
+The project accepts integer arguments either as separate command-line values or as quoted strings containing several values.
+Invalid input such as non-integer tokens, duplicates, or values outside the `int` range triggers an `Error` message on the standard error output.
+
+A detailed explanation and justification of the selected algorithms is provided in the algorithm documentation already written in the sections below.
+
+## Instructions
+
+### Requirements
+
+- A C compiler supporting the usual 42 flags
+- `make`
+
+### Compilation
+
+Build the mandatory program:
+
+```bash
+make
+```
+
+Build the bonus program:
+
+```bash
+make bonus
+```
+
+Clean object files:
+
+```bash
+make clean
+```
+
+Remove all generated files:
+
+```bash
+make fclean
+```
+
+Rebuild everything:
+
+```bash
+make re
+```
+
+### Running `push_swap`
+
+Basic usage:
+
+```bash
+./push_swap 2 1 3 6 5 8
+```
+
+The parser also accepts quoted input:
+
+```bash
+./push_swap "2 1 3 6 5 8"
+```
+
+This implementation also supports the following optional flags:
+
+- `--simple` to force the simple strategy
+- `--medium` to force the medium strategy
+- `--complex` to force the complex strategy
+- `--adaptive` to force the adaptive strategy selection
+- `--bench` to print benchmark information such as disorder, chosen strategy, complexity, and operation counts
+
+Examples:
+
+```bash
+./push_swap --complex "3 2 5 1 4"
+./push_swap --adaptive --bench 3 2 5 1 4
+```
+
+### Running the bonus checker
+
+The bonus program reads operations from standard input and verifies whether they sort the stack correctly.
+
+Example with a pipe:
+
+```bash
+ARG="4 67 3 87 23"
+./push_swap $ARG | ./checker $ARG
+```
+
+Manual example:
+
+```bash
+./checker 2 1 0
+```
+
+Then type operations line by line, for example:
+
+```text
+sa
+rra
+```
+
+Then send EOF (`Ctrl+D`).
+
+The checker accepts all official `push_swap` operations:
+`sa`, `sb`, `ss`, `pa`, `pb`, `ra`, `rb`, `rr`, `rra`, `rrb`, `rrr`.
+
+## Bonus
+
+The bonus part of this project is fully implemented through the `checker` program.
+It parses the same kind of input as the mandatory part, reads instructions with `get_next_line`, executes them on the stacks, handles invalid operations with a proper error message, and verifies whether the final state is correct.
+
+This bonus was designed as a validation tool for the mandatory part, but it is also useful during development and debugging, since it allows quick testing of generated instruction sequences.
+
+## Team Contributions
+
+The work was divided as follows:
+
+- `lobroue` mainly worked on the sorting algorithms.
+- `btheveny` mainly worked on the parser and on the bonus part.
+- Both debugged and reviewed both parts of the project whenever necessary.
+
+## Resources
+
+The project was documented and developed with the help of the following resources:
+
+- The official 42 `push_swap` subject
+- The existing algorithm notes and documentation already present in this README
+- Medium articles and visualizers referenced in the repository for understanding chunk-based approaches and radix sort
+
+### AI usage disclosure
+
+AI tools were used for documentation support, wording improvements, and occasional debugging discussions.
+They were not used as a substitute for implementing, testing, or understanding the project.
+All design choices, code implementation, and final validation were done by the authors.
 
 RESSOURCES:
-https://medium.com/@ayogun/push-swap-c1f5d2d41e97 (algo turk, mais boen pour comprendre les concepts(base des push et list circulaire))
+https://medium.com/@ayogun/push-swap-c1f5d2d41e97 
 https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
 
 
 Radix animation: https://radix-sort-animation.netlify.app/
 
-turk/chunk animation : https://chunk-turk-algo.netlify.app/
+Turk/chunk animation : https://chunk-turk-algo.netlify.app/
 
 # Push_swap — Algorithm Documentation
 
