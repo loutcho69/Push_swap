@@ -145,13 +145,15 @@ They were not used as a substitute for implementing, testing, or understanding t
 All design choices, code implementation, and final validation were done by the authors.
 
 RESSOURCES:
-https://medium.com/@ayogun/push-swap-c1f5d2d41e97 
-https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
+- https://medium.com/@ayogun/push-swap-c1f5d2d41e97 
+- https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
+- https://42-cursus.gitbook.io/guide/2-rank-02/push_swap
+- https://satyadeepmaheshwari.medium.com/sorting-large-datasets-with-limited-memory-the-chunked-merge-sort-approach-318275275c81
+- https://github.com/AdrianWR/push_swap
+- https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e
+- https://www.youtube.com/watch?v=OaG81sDEpVk
+- https://zestedesavoir.com/tutoriels/755/le-langage-c-1/1043_aggregats-memoire-et-fichiers/4279_structures/
 
-
-Radix animation: https://radix-sort-animation.netlify.app/
-
-Turk/chunk animation : https://chunk-turk-algo.netlify.app/
 
 # Push_swap — Algorithm Documentation
 
@@ -207,6 +209,8 @@ Once all elements are in B (grouped by chunk), the algorithm reconstructs A by r
 
 **Complexity argument:** Phase 1 performs `√n` chunk passes, each requiring at most `n` rotations: `O(n√n)`. Phase 2 performs `n` pulls, each requiring at most `√n/2` rotations on average: `O(n√n)`. Total: `O(n√n)`.
 
+Turk/chunk animation : https://chunk-turk-algo.netlify.app/
+
 ---
 
 ## Strategy 3 — Complex Sort `O(n log n)`
@@ -232,6 +236,8 @@ The number of passes is `max_bits = ⌊log₂(n-1)⌋ + 1`.
 **Complexity argument:** `max_bits` passes × `2n` operations per pass (n pushes/rotates + n repushes) = `O(n log n)`.
 
 **Performance:** For 500 elements, this produces approximately 4500 operations, well within the 5500 target.
+
+Radix animation: https://radix-sort-animation.netlify.app/
 
 ---
 
