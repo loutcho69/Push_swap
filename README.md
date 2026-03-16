@@ -140,7 +140,7 @@ The project was documented and developed with the help of the following resource
 
 ### AI usage disclosure
 
-AI tools were used for documentation support, wording improvements, and occasional debugging discussions.
+AI tools were used for documentation support, wording improvements.
 They were not used as a substitute for implementing, testing, or understanding the project.
 All design choices, code implementation, and final validation were done by the authors.
 
